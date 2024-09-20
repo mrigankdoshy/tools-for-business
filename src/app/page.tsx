@@ -6,14 +6,11 @@ import '@/lib/env';
 
 import { Button } from '@/components/ui/button';
 
-import Logo from '~/svg/Logo.svg';
-
 export default function HomePage() {
   return (
     <main>
       <section className="bg-white">
         <div className="layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center">
-          <Logo className="w-16" />
           <h1 className="mt-4">Build your next MVP or side project</h1>
           <p className="mt-2 text-sm text-gray-800">
             Launch your startup in a day without code—start with free no-code
