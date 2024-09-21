@@ -3,8 +3,7 @@
  * @see https://github.com/iamvishnusankar/next-sitemap#readme
  */
 module.exports = {
-  // TODO: Change the siteUrl
-  siteUrl: 'https://example.com',
+  siteUrl: 'https://toolsforbusiness.vercel.app',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],

@@ -1,7 +1,6 @@
 export const siteConfig = {
-  title: 'Focal',
+  title: 'AI Tools for Business',
   description:
     'Launch your startup in a day without code—start with free no-code tool recommendations. Stop waiting, create your idea now!',
-  // TODO: Update URL
-  url: 'https://example.com',
+  url: 'https://toolsforbusiness.vercel.app',
 };
