@@ -1,9 +1,20 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { Inter as FontSans } from 'next/font/google';
 import { ReactNode } from 'react';
 
 import '@/styles/globals.css';
 
+import { cn } from '@/lib/utils';
+
+import { ThemeProvider } from '@/components/theme-provider';
+import { Toaster } from '@/components/ui/sonner';
+
 import { siteConfig } from '@/constant/config';
+
+const fontSans = FontSans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -49,8 +60,22 @@ type RootLayoutProps = Readonly<{
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html>
-      <body>{children}</body>
+    <html lang="en">
+      <body
+        className={cn(
+          'bg-background min-h-screen font-sans antialiased',
+          fontSans.variable
+        )}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
