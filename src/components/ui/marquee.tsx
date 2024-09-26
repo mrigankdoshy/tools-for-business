@@ -9,7 +9,6 @@ type MarqueeProps = {
   children?: ReactNode;
   vertical?: boolean;
   repeat?: number;
-  [key: string]: any;
 };
 
 export default function Marquee({

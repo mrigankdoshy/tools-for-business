@@ -1,6 +1,5 @@
 'use client';
 
-import { motion, useAnimation, useInView } from 'framer-motion';
 import {
   Activity,
   Brain,
@@ -11,15 +10,16 @@ import {
   Shield,
   Terminal,
 } from 'lucide-react';
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
 import { Button } from '@/components/ui/button';
+import Card, { CardProps } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import Marquee from '@/components/ui/marquee';
 
-const tiles = [
+const tiles: CardProps[] = [
   {
     icon: <Activity className="size-full" />,
     bg: (
@@ -58,7 +58,8 @@ const tiles = [
   },
 ];
 
-function shuffleArray(array: any[]) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const shuffleArray = (array: any): CardProps[] => {
   let currentIndex = array.length;
   let randomIndex;
 
@@ -71,46 +72,13 @@ function shuffleArray(array: any[]) {
     ];
   }
   return array;
-}
-
-function Card(card: { icon: JSX.Element; bg: JSX.Element }) {
-  const id = useId();
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start({
-        opacity: 1,
-        transition: { delay: Math.random() * 2, ease: 'easeOut', duration: 1 },
-      });
-    }
-  }, [controls, inView]);
-
-  return (
-    <motion.div
-      key={id}
-      ref={ref}
-      initial={{ opacity: 0 }}
-      animate={controls}
-      className={cn(
-        'relative size-20 cursor-pointer overflow-hidden rounded-2xl border p-4',
-        'bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]',
-        'transform-gpu dark:bg-transparent dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]'
-      )}
-    >
-      {card.icon}
-      {card.bg}
-    </motion.div>
-  );
-}
+};
 
 export default function CallToActionSection() {
-  const [randomTiles1, setRandomTiles1] = useState<typeof tiles>([]);
-  const [randomTiles2, setRandomTiles2] = useState<typeof tiles>([]);
-  const [randomTiles3, setRandomTiles3] = useState<typeof tiles>([]);
-  const [randomTiles4, setRandomTiles4] = useState<typeof tiles>([]);
+  const [randomTiles1, setRandomTiles1] = useState<CardProps[]>([]);
+  const [randomTiles2, setRandomTiles2] = useState<CardProps[]>([]);
+  const [randomTiles3, setRandomTiles3] = useState<CardProps[]>([]);
+  const [randomTiles4, setRandomTiles4] = useState<CardProps[]>([]);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -122,10 +90,10 @@ export default function CallToActionSection() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setRandomTiles1(shuffleArray([...tiles]));
-      setRandomTiles2(shuffleArray([...tiles]));
-      setRandomTiles3(shuffleArray([...tiles]));
-      setRandomTiles4(shuffleArray([...tiles]));
+      setRandomTiles1(shuffleArray(tiles));
+      setRandomTiles2(shuffleArray(tiles));
+      setRandomTiles3(shuffleArray(tiles));
+      setRandomTiles4(shuffleArray(tiles));
     }
   }, []);
 
@@ -181,7 +149,7 @@ export default function CallToActionSection() {
                 <CalendarHeart className="mx-auto size-16 text-black lg:size-24 dark:text-white" />
               </div>
               <div className="text-primary z-10 mt-4 flex flex-col items-center text-center">
-                <h1 className="text-3xl font-bold lg:text-4xl">
+                <h1 className="animate-fade-in -translate-y-4 text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text leading-none tracking-tighter text-transparent opacity-0 [--animation-delay:200ms] text-3xl font-bold lg:text-4xl dark:from-white dark:to-white/40">
                   The Focal Lab Digest
                 </h1>
                 <p className="mt-2">
