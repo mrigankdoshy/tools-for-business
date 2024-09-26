@@ -101,7 +101,7 @@ export function SiteFooter() {
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             Copyright © {new Date().getFullYear()}{' '}
             <Link href="/" className="cursor-pointer">
-              Tools for Business
+              Mrigank Doshy
             </Link>
           </span>
         </div>

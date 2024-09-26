@@ -1,6 +1,6 @@
 import { FeaturedTools } from '@/components/featured/featured-tools';
 
-export default function FeaturedSection() {
+export function FeaturedSection() {
   return (
     <section
       id="features"

@@ -4,9 +4,9 @@ import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { useRef } from 'react';
 
 import { Button } from '@/components/ui/button';
-import TextShimmer from '@/components/ui/text-shimmer';
+import { TextShimmer } from '@/components/ui/text-shimmer';
 
-export default function HeroSection() {
+export function HeroSection() {
   const ref = useRef(null);
 
   return (

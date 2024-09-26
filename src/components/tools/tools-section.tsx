@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 import { Tools } from '@/components/tools/tools';
 import { buttonVariants } from '@/components/ui/button';
 
-export default function ToolsSection() {
+export function ToolsSection() {
   return (
     <section id="pricing">
       <div className="mx-auto flex max-w-screen-xl flex-col gap-8 px-4 py-14 md:px-8">

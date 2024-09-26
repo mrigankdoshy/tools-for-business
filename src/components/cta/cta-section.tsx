@@ -2,12 +2,12 @@
 
 import { CalendarHeart } from 'lucide-react';
 
-import AnimatedIcons from '@/components/cta/animated-icons';
+import { AnimatedIcons } from '@/components/cta/animated-icons';
 import { CallToActionTitle } from '@/components/cta/cta-title';
 import { SubscribeButton } from '@/components/cta/subscribe-button';
 import { Input } from '@/components/ui/input';
 
-export default function CallToActionSection() {
+export function CallToActionSection() {
   return (
     <section id="cta">
       <div className="py-14">

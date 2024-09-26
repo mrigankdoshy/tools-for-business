@@ -1,8 +1,8 @@
 import { Activity, Brain, Code, Cpu, Shield, Terminal } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-import Card, { CardProps } from '@/components/ui/card';
-import Marquee from '@/components/ui/marquee';
+import { Card, CardProps } from '@/components/ui/card';
+import { Marquee } from '@/components/ui/marquee';
 
 const tiles: CardProps[] = [
   {
@@ -59,7 +59,7 @@ const shuffleArray = (array: any): CardProps[] => {
   return array;
 };
 
-export default function AnimatedIcons() {
+export function AnimatedIcons() {
   const [randomTiles1, setRandomTiles1] = useState<CardProps[]>([]);
   const [randomTiles2, setRandomTiles2] = useState<CardProps[]>([]);
   const [randomTiles3, setRandomTiles3] = useState<CardProps[]>([]);

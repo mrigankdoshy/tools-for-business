@@ -8,7 +8,7 @@ type TextShimmerProps = {
   shimmerWidth?: number;
 };
 
-export default function TextShimmer({
+export function TextShimmer({
   children,
   className,
   shimmerWidth = 100,

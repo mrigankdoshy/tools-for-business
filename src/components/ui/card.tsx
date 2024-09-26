@@ -8,7 +8,7 @@ export type CardProps = {
   bg: ReactNode;
 };
 
-export default function Card(card: CardProps) {
+export function Card(card: CardProps) {
   const id = useId();
   const controls = useAnimation();
   const ref = useRef(null);

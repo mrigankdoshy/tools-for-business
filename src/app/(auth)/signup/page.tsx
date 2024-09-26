@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Sign Up for Tools for Business',
 };
 
-export default function SignUpPage() {
+export function SignUpPage() {
   return (
     <div className="container flex h-screen w-screen flex-col items-center justify-center">
       <Link

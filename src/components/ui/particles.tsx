@@ -50,7 +50,7 @@ type ParticlesProps = {
   vy?: number;
 };
 
-export default function Particles({
+export function Particles({
   className = '',
   quantity = 100,
   staticity = 50,
