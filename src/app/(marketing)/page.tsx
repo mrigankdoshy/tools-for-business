@@ -1,7 +1,7 @@
-import CallToActionSection from '@/components/landing/cta-section';
-import FeaturedSection from '@/components/landing/featured-section';
-import HeroSection from '@/components/landing/hero-section';
-import ToolsSection from '@/components/landing/tools-section';
+import CallToActionSection from '@/components/cta/cta-section';
+import FeaturedSection from '@/components/featured/featured-section';
+import HeroSection from '@/components/hero/hero-section';
+import ToolsSection from '@/components/tools/tools-section';
 import Particles from '@/components/ui/particles';
 import { SphereMask } from '@/components/ui/sphere-mask';
 

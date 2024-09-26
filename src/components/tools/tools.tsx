@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Activity,
   Brain,
@@ -15,11 +13,8 @@ import {
   Shield,
   Terminal,
 } from 'lucide-react';
-import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
-
-import { buttonVariants } from '@/components/ui/button';
 
 const aiTools = [
   {
@@ -120,65 +115,36 @@ const aiTools = [
   },
 ];
 
-export default function ToolsSection() {
+export function Tools() {
   return (
-    <section id="pricing">
-      <div className="mx-auto flex max-w-screen-xl flex-col gap-8 px-4 py-14 md:px-8">
-        <div className="mx-auto max-w-5xl text-center">
-          <h2 className="text-5xl font-bold tracking-tight text-black sm:text-6xl dark:text-white">
-            Build your tool kit.
-          </h2>
-
-          <p className="mt-6 text-xl leading-8 text-black/80 dark:text-white">
-            Choose an <strong>AI tool</strong> that&apos;s packed with the best
-            features for product.
-          </p>
-        </div>
-        <div className="mx-auto grid w-full flex-col justify-center gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {aiTools.map((tool) => (
-            <div
-              key={tool.id}
-              className={cn(
-                'relative flex max-w-[400px] flex-col gap-8 overflow-hidden rounded-2xl border p-4 text-black dark:text-white'
-              )}
-            >
-              <div className="flex items-center">
-                <div className="ml-4">
-                  {tool.icon}
-                  <h2 className="text-base font-semibold leading-7 my-2">
-                    {tool.title}
-                  </h2>
-                  <p className="h-16 text-sm leading-5 text-black/70 dark:text-white">
-                    {tool.description}
-                  </p>
-                </div>
-              </div>
-              <a
-                href={tool.link}
-                className="ml-4 flex items-center gap-2 text-sm font-medium"
-              >
-                Learn more
-                <ChevronRight className="w-4" />
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="relative mx-auto max-w-7xl px-6 text-center md:px-8">
-        <Link
-          href="#"
+    <div className="mx-auto grid w-full flex-col justify-center gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {aiTools.map((tool) => (
+        <div
+          key={tool.id}
           className={cn(
-            buttonVariants({
-              size: 'lg',
-              variant: 'outline',
-            }),
-            'group mt-4 rounded-[2rem] px-6'
+            'relative flex max-w-[400px] flex-col gap-8 overflow-hidden rounded-2xl border p-4 text-black dark:text-white'
           )}
         >
-          Explore All Tools
-          <ChevronRight className="ml-1 size-4 transition-all duration-300 ease-out group-hover:translate-x-1" />
-        </Link>
-      </div>
-    </section>
+          <div className="flex items-center">
+            <div className="ml-4">
+              {tool.icon}
+              <h2 className="text-base font-semibold leading-7 my-2">
+                {tool.title}
+              </h2>
+              <p className="h-16 text-sm leading-5 text-black/70 dark:text-white">
+                {tool.description}
+              </p>
+            </div>
+          </div>
+          <a
+            href={tool.link}
+            className="ml-4 flex items-center gap-2 text-sm font-medium"
+          >
+            Learn more
+            <ChevronRight className="w-4" />
+          </a>
+        </div>
+      ))}
+    </div>
   );
 }
