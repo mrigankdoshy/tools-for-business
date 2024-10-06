@@ -9,8 +9,8 @@ export default async function Page() {
   return (
     <>
       <HeroSection />
-      <FeaturedSection />
       <SphereMask />
+      <FeaturedSection />
       <ToolsSection />
       <CallToActionSection />
       <Particles

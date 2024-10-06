@@ -3,6 +3,8 @@
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { useRef } from 'react';
 
+import { cn } from '@/lib/utils';
+
 import { Button } from '@/components/ui/button';
 import { TextShimmer } from '@/components/ui/text-shimmer';
 
@@ -29,7 +31,12 @@ export function HeroSection() {
         recommendations.
         <br className="hidden md:block" /> Stop waiting, create your idea now!
       </p>
-      <Button className="animate-fade-in -translate-y-4 gap-1 rounded-lg text-white opacity-0 ease-in-out [--animation-delay:600ms] dark:text-black">
+      <Button
+        className={cn(
+          'group relative gap-2 overflow-hidden tracking-tighter',
+          'hover:ring-primary transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-offset-2'
+        )}
+      >
         <span>Explore Resources </span>
         <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
       </Button>

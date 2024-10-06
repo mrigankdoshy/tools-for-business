@@ -17,9 +17,9 @@ export function ToolsSection() {
             Build your tool kit.
           </h2>
 
-          <p className="mt-6 text-xl leading-8 text-black/80 dark:text-white">
+          <p className="animate-fade-in mt-6 -translate-y-4 text-balance text-lg tracking-tight text-gray-400 opacity-0 [--animation-delay:400ms] md:text-xl">
             Choose an <strong>AI tool</strong> that&apos;s packed with the best
-            features for product.
+            features for your product.
           </p>
         </div>
         <Tools />
