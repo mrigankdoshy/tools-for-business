@@ -90,91 +90,93 @@ export function FeaturedTools({ interval }: FeaturedToolsProps) {
   return (
     <div className="mx-auto grid w-full flex-col justify-center gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {featuredTools.map((tool, idx) => (
-        <div
-          key={tool.id}
-          className={cn(
-            'relative flex max-w-[400px] flex-col gap-8 overflow-hidden rounded-2xl border p-4 text-black dark:text-white',
-            {
-              'border-2 border-[var(--color-one)] dark:border-[var(--color-one)]':
-                tool.isMostPopular,
-            }
-          )}
-        >
-          <div className="flex items-center">
-            <div>
-              <h2 className="text-base font-semibold leading-7">{tool.name}</h2>
-              <p className="h-12 text-sm leading-5 text-black/70 dark:text-white">
-                {tool.description}
-              </p>
-            </div>
-          </div>
-
-          <motion.div
-            key={`${tool.id}-${interval}`}
-            initial="initial"
-            animate="animate"
-            variants={{
-              initial: {
-                opacity: 0,
-                y: 12,
-              },
-              animate: {
-                opacity: 1,
-                y: 0,
-              },
-            }}
-            transition={{
-              duration: 0.4,
-              delay: 0.1 + idx * 0.05,
-              ease: [0.21, 0.47, 0.32, 0.98],
-            }}
-            className="flex flex-row gap-1"
-          >
-            <div>
-              <h2 className="text-sm font-semibold text-gray-600 mb-1">
-                Starting
-              </h2>
-              <span className="text-4xl font-bold text-black dark:text-white">
-                ${interval === 'year' ? tool.yearlyPrice : tool.monthlyPrice}
-                <span className="text-xs"> /{interval}</span>
-              </span>
-            </div>
-          </motion.div>
-
-          <hr className="m-0 h-px w-full border-none bg-gradient-to-r from-neutral-200/0 via-neutral-500/30 to-neutral-200/0" />
-
-          {tool.features && tool.features.length > 0 && (
-            <ul className="flex flex-col gap-2 font-normal">
-              {tool.features.map((feature, idx) => (
-                <li
-                  key={idx}
-                  className="flex items-center gap-3 text-xs font-medium text-black dark:text-white"
-                >
-                  <CheckIcon className="size-5 shrink-0 rounded-full bg-green-400 p-[2px] text-black dark:text-white" />
-                  <span className="flex">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <Button
+        <div key={tool.id} className="relative mt-32 overflow-visible">
+          <div
             className={cn(
-              'group relative w-full gap-2 overflow-hidden tracking-tighter',
-              'hover:ring-primary transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-offset-2'
+              'relative flex max-w-[400px] flex-col gap-8 overflow-hidden rounded-2xl border p-4 text-black dark:text-white',
+              {
+                'border-none glow-border': tool.isMostPopular,
+              }
             )}
-            disabled={isLoading}
-            onClick={() => void onLearnMoreClick(tool.id)}
           >
-            {(!isLoading || (isLoading && id !== tool.id)) && (
-              <>
-                <p>Learn More</p>
-                <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
-              </>
+            <div className="flex items-center">
+              <div>
+                <h2 className="text-base font-semibold leading-7">
+                  {tool.name}
+                </h2>
+                <p className="h-12 text-sm leading-5 text-black/70 dark:text-white">
+                  {tool.description}
+                </p>
+              </div>
+            </div>
+
+            <motion.div
+              key={`${tool.id}-${interval}`}
+              initial="initial"
+              animate="animate"
+              variants={{
+                initial: {
+                  opacity: 0,
+                  y: 12,
+                },
+                animate: {
+                  opacity: 1,
+                  y: 0,
+                },
+              }}
+              transition={{
+                duration: 0.4,
+                delay: 0.1 + idx * 0.05,
+                ease: [0.21, 0.47, 0.32, 0.98],
+              }}
+              className="flex flex-row gap-1"
+            >
+              <div>
+                <h2 className="text-sm font-semibold text-gray-600 mb-1">
+                  Starting
+                </h2>
+                <span className="text-4xl font-bold text-black dark:text-white">
+                  ${interval === 'year' ? tool.yearlyPrice : tool.monthlyPrice}
+                  <span className="text-xs"> /{interval}</span>
+                </span>
+              </div>
+            </motion.div>
+
+            <hr className="m-0 h-px w-full border-none bg-gradient-to-r from-neutral-200/0 via-neutral-500/30 to-neutral-200/0" />
+
+            {tool.features && tool.features.length > 0 && (
+              <ul className="flex flex-col gap-2 font-normal">
+                {tool.features.map((feature, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-center gap-3 text-xs font-medium text-black dark:text-white"
+                  >
+                    <CheckIcon className="size-5 shrink-0 rounded-full bg-green-400 p-[2px] text-black dark:text-white" />
+                    <span className="flex">{feature}</span>
+                  </li>
+                ))}
+              </ul>
             )}
-            {isLoading && id === tool.id && (
-              <Loader className="mr-2 size-4 animate-spin" />
-            )}
-          </Button>
+
+            <Button
+              className={cn(
+                'group relative w-full gap-2 overflow-hidden tracking-tighter',
+                'hover:ring-primary transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-offset-2'
+              )}
+              disabled={isLoading}
+              onClick={() => void onLearnMoreClick(tool.id)}
+            >
+              {(!isLoading || (isLoading && id !== tool.id)) && (
+                <>
+                  <p>Learn More</p>
+                  <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+                </>
+              )}
+              {isLoading && id === tool.id && (
+                <Loader className="mr-2 size-4 animate-spin" />
+              )}
+            </Button>
+          </div>
         </div>
       ))}
     </div>
