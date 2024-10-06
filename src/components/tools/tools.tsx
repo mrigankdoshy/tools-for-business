@@ -1,3 +1,4 @@
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import {
   Activity,
   Brain,
@@ -13,6 +14,7 @@ import {
   Shield,
   Terminal,
 } from 'lucide-react';
+import { MouseEvent } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -45,7 +47,7 @@ const aiTools = [
     id: 4,
     title: 'OpenAI',
     description:
-      'An AI research lab that provides language models like GPT for various natural language processing applications.',
+      'An AI research lab that provides language models for natural language processing applications.',
     icon: <MessageCircle className="size-6" />,
     link: 'https://openai.com/',
   },
@@ -69,7 +71,7 @@ const aiTools = [
     id: 7,
     title: 'Cohere',
     description:
-      'A natural language processing platform that provides language models and tools for text understanding and generation.',
+      'A natural language processing platform for text understanding and generation.',
     icon: <Code className="size-6" />,
     link: 'https://cohere.ai/',
   },
@@ -77,7 +79,7 @@ const aiTools = [
     id: 8,
     title: 'DeepMind',
     description:
-      'AI research lab known for developing algorithms that achieve superhuman performance in games and other fields.',
+      'AI research lab developing algorithms that achieve superhuman performance in games and other fields.',
     icon: <Shield className="size-6" />,
     link: 'https://www.deepmind.com/',
   },
@@ -101,7 +103,7 @@ const aiTools = [
     id: 11,
     title: 'Seldon',
     description:
-      'An open-source platform that helps deploy, scale, and manage machine learning models in production environments.',
+      'An open-source platform that helps deploy, scale, and manage machine learning models.',
     icon: <Cpu className="size-6" />,
     link: 'https://www.seldon.io/',
   },
@@ -109,22 +111,46 @@ const aiTools = [
     id: 12,
     title: 'H2O.ai',
     description:
-      'A leader in open-source AI and machine learning, providing tools for building and deploying models at scale.',
+      'A leader in open-source AI and machine learning, providing tools for building and deploying at scale.',
     icon: <Terminal className="size-6" />,
     link: 'https://www.h2o.ai/',
   },
 ];
 
 export function Tools() {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const handleMouseMove = ({ currentTarget, clientX, clientY }: MouseEvent) => {
+    const { left, top } = currentTarget.getBoundingClientRect();
+
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  };
+
   return (
     <div className="mx-auto grid w-full flex-col justify-center gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {aiTools.map((tool) => (
         <div
           key={tool.id}
           className={cn(
-            'relative flex max-w-[400px] flex-col gap-8 overflow-hidden rounded-2xl border p-4 text-black dark:text-white'
+            'group relative max-w-[400px] rounded-2xl border border-white/10 px-2 py-6 shadow-2xl'
           )}
+          onMouseMove={handleMouseMove}
         >
+          <motion.div
+            className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+            style={{
+              background: useMotionTemplate`
+              radial-gradient(
+                650px circle at ${mouseX}px ${mouseY}px,
+                rgba(211, 14, 233, 0.15),
+                transparent 80%
+              )
+            `,
+            }}
+          />
+
           <div className="flex items-center">
             <div className="ml-4">
               {tool.icon}

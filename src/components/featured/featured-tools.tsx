@@ -1,9 +1,9 @@
 'use client';
 
 import { CheckIcon } from '@radix-ui/react-icons';
-import { motion } from 'framer-motion';
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { ArrowRightIcon, Loader } from 'lucide-react';
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -80,6 +80,16 @@ export function FeaturedTools({ interval }: FeaturedToolsProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [id, setId] = useState<string | null>(null);
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const handleMouseMove = ({ currentTarget, clientX, clientY }: MouseEvent) => {
+    const { left, top } = currentTarget.getBoundingClientRect();
+
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  };
+
   const onLearnMoreClick = async (priceId: string) => {
     setIsLoading(true);
     setId(priceId);
@@ -90,15 +100,29 @@ export function FeaturedTools({ interval }: FeaturedToolsProps) {
   return (
     <div className="mx-auto grid w-full flex-col justify-center gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {featuredTools.map((tool, idx) => (
-        <div key={tool.id} className="relative mt-32 overflow-visible">
+        <div key={tool.id} className="relative overflow-visible">
           <div
             className={cn(
-              'relative flex max-w-[400px] flex-col gap-8 overflow-hidden rounded-2xl border p-4 text-black dark:text-white',
+              'group relative flex max-w-[400px] flex-col gap-8 overflow-hidden rounded-2xl border p-4 text-black dark:text-white',
               {
                 'border-none glow-border': tool.isMostPopular,
               }
             )}
+            onMouseMove={handleMouseMove}
           >
+            <motion.div
+              className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+              style={{
+                background: useMotionTemplate`
+              radial-gradient(
+                650px circle at ${mouseX}px ${mouseY}px,
+                rgba(211, 14, 233, 0.15),
+                transparent 80%
+              )
+            `,
+              }}
+            />
+
             <div className="flex items-center">
               <div>
                 <h2 className="text-base font-semibold leading-7">
