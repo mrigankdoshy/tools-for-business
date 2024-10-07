@@ -5,7 +5,7 @@ export function CallToActionTitle() {
         catalyst.ai
       </h1>
       <p className="mt-2">
-        500+ professionals read every week to learn about AI tools
+        Get the tea 🍵 on tools, micro-businesses, and 0-1 stories!
       </p>
     </>
   );
