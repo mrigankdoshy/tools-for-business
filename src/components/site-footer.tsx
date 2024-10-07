@@ -1,6 +1,6 @@
 import {
   EnvelopeClosedIcon,
-  LinkedInLogoIcon,
+  InstagramLogoIcon,
   TwitterLogoIcon,
 } from '@radix-ui/react-icons';
 import Link from 'next/link';
@@ -34,8 +34,8 @@ const footerNavs = [
 const footerSocials = [
   {
     href: '',
-    name: 'LinkedIn',
-    icon: <LinkedInLogoIcon className="size-4" />,
+    name: 'Instagram',
+    icon: <InstagramLogoIcon className="size-4" />,
   },
   {
     href: '',
