@@ -14,12 +14,12 @@ export function ToolsSection() {
       <div className="mx-auto flex max-w-screen-xl flex-col gap-8 px-4 py-14 md:px-8">
         <div className="mx-auto max-w-5xl text-center">
           <h2 className="text-5xl font-bold tracking-tight text-black sm:text-6xl dark:text-white">
-            Build your tool kit.
+            Discover the right AI tools <br className="hidden md:block" />
+            for your project.
           </h2>
 
           <p className="animate-fade-in mt-6 -translate-y-4 text-balance text-lg tracking-tight text-gray-400 opacity-0 [--animation-delay:400ms] md:text-xl">
-            Choose an <strong>AI tool</strong> that&apos;s packed with the best
-            features for your product.
+            92% of builders spend over 5 hours finding tools, be the 8%.
           </p>
         </div>
         <Tools />

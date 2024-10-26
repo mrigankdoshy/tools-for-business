@@ -13,17 +13,13 @@ export function FeaturedSection() {
     <section id="featured-tools">
       <div className="mx-auto flex max-w-screen-xl flex-col gap-8 px-4 py-14 md:px-8">
         <div className="mx-auto max-w-5xl text-center">
-          <h4 className="text-xl font-bold tracking-tight text-black dark:text-white">
-            Featured Tools
-          </h4>
-
           <h2 className="text-5xl font-bold tracking-tight text-black sm:text-6xl dark:text-white">
-            Handpicked tools for everyone.
+            Get exclusive discounts to <br className="hidden md:block" /> start
+            building.
           </h2>
 
           <p className="animate-fade-in mt-6 -translate-y-4 text-balance text-lg tracking-tight text-gray-400 opacity-0 [--animation-delay:400ms] md:text-xl">
-            Choose an <strong>affordable tool</strong> from our recommendations
-            that&apos;s packed with the best features for your project.
+            Yes, we want you to be profitable and not raise a $5M pre-seed.
           </p>
         </div>
 
