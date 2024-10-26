@@ -58,7 +58,9 @@ export function HeroSection() {
         </LayoutGroup>
       </h1>
       <p className="animate-fade-in mb-12 -translate-y-4 text-balance text-lg tracking-tight text-gray-400 opacity-0 [--animation-delay:400ms] md:text-xl">
-        Want to build? We find your tools so you can ship fast.
+        Launch your startup in a day without code—we find the right tools for
+        you so you can ship fast.
+        <br className="hidden md:block" /> Stop waiting, create your idea now!
       </p>
       <Button
         className={cn(
