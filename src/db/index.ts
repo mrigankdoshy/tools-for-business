@@ -1,8 +1,9 @@
-import { config } from 'dotenv';
+import { loadEnvConfig } from '@next/env';
 import { drizzle } from 'drizzle-orm/postgres-js';
+import { cwd } from 'node:process';
 import postgres from 'postgres';
 
-config({ path: '.env.local' });
+loadEnvConfig(cwd());
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const client = postgres(process.env.POSTGRES_URL!);

@@ -1,7 +1,8 @@
-import { config } from 'dotenv';
+import { loadEnvConfig } from '@next/env';
 import { defineConfig } from 'drizzle-kit';
+import { cwd } from 'node:process';
 
-config({ path: '.env.local' });
+loadEnvConfig(cwd());
 
 export default defineConfig({
   out: './drizzle',
