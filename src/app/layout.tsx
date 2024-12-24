@@ -1,15 +1,16 @@
-import type { Metadata } from 'next';
-import { Inter as FontSans } from 'next/font/google';
 import { ReactNode } from 'react';
 
-import '@/styles/globals.css';
-
-import { cn } from '@/lib/utils';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import type { Metadata } from 'next';
+import { Inter as FontSans } from 'next/font/google';
 
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
-
 import { siteConfig } from '@/constant/config';
+import { cn } from '@/lib/utils';
+import '@/styles/globals.css';
+
+const queryClient = new QueryClient();
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -67,14 +68,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          disableTransitionOnChange
-        >
-          {children}
-          <Toaster />
-        </ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            disableTransitionOnChange
+          >
+            {children}
+            <Toaster />
+          </ThemeProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );

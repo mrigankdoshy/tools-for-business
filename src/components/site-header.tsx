@@ -1,13 +1,13 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import { AnimatePresence, motion } from 'framer-motion';
 import { AlignJustify, XIcon } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-
-import { cn } from '@/lib/utils';
 
 import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const menuItems = [
   {

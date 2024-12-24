@@ -1,13 +1,13 @@
 'use client';
 
-import { ArrowRightIcon } from '@radix-ui/react-icons';
-import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-import { cn } from '@/lib/utils';
+import { ArrowRightIcon } from '@radix-ui/react-icons';
+import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 
 import { Button } from '@/components/ui/button';
 import { TextShimmer } from '@/components/ui/text-shimmer';
+import { cn } from '@/lib/utils';
 
 const words = ['AI tool', 'library', 'plugin'];
 

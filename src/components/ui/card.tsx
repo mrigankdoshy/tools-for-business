@@ -1,5 +1,6 @@
-import { motion, useAnimation, useInView } from 'framer-motion';
 import { ReactNode, useEffect, useId, useRef } from 'react';
+
+import { motion, useAnimation, useInView } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
 

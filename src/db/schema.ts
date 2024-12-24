@@ -40,3 +40,7 @@ export const tier_features = pgTable(
     primaryKey: [self.tier_id, self.feature_id],
   })
 );
+
+export type Tool = typeof tools.$inferSelect;
+export type Tier = typeof tiers.$inferSelect;
+export type Feature = typeof features.$inferSelect;

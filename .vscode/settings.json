@@ -1,6 +1,7 @@
 {
   "css.validate": false,
   "editor.tabSize": 2,
+  "workbench.activityBar.orientation": "vertical",
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "javascript.suggest.autoImports": true,
   "typescript.preferences.importModuleSpecifier": "non-relative",
