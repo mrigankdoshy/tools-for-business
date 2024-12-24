@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-
 import { Activity, Brain, Code, Cpu, Shield, Terminal } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 import { Card, CardProps } from '@/components/ui/card';
 import { Marquee } from '@/components/ui/marquee';

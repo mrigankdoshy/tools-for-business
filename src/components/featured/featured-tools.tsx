@@ -1,14 +1,14 @@
 'use client';
 
-import { MouseEvent, useState } from 'react';
-
 import { CheckIcon } from '@radix-ui/react-icons';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { ArrowRightIcon, Loader } from 'lucide-react';
+import { MouseEvent, useState } from 'react';
+
+import { cn } from '@/lib/utils';
 
 import { Interval } from '@/components/featured/featured-section';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 
 const featuredTools = [
   {

@@ -1,9 +1,9 @@
+import { Loader } from 'lucide-react';
 import { useState } from 'react';
 
-import { Loader } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 
 export function SubscribeButton() {
   const [isLoading, setIsLoading] = useState(false);

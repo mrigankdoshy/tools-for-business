@@ -1,13 +1,14 @@
 'use client';
 
-import { HTMLAttributes, useState } from 'react';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
 import { Loader2 } from 'lucide-react';
+import { HTMLAttributes, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import * as z from 'zod';
+
+import { cn } from '@/lib/utils';
 
 import { buttonVariants } from '@/components/ui/button';
 import {
@@ -18,7 +19,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { cn } from '@/lib/utils';
 
 export const userAuthSchema = z.object({
   email: z.string().email(),

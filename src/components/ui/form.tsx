@@ -1,3 +1,5 @@
+import type * as LabelPrimitive from '@radix-ui/react-label';
+import { Slot } from '@radix-ui/react-slot';
 import {
   ComponentPropsWithoutRef,
   createContext,
@@ -7,14 +9,12 @@ import {
   useContext,
   useId,
 } from 'react';
-
-import type * as LabelPrimitive from '@radix-ui/react-label';
-import { Slot } from '@radix-ui/react-slot';
 import type { ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
 
-import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
+
+import { Label } from '@/components/ui/label';
 
 const Form = FormProvider;
 
