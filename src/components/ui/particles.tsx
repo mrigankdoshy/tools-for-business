@@ -68,7 +68,7 @@ export function Particles({
   const mousePosition = useMousePosition();
   const mouse = useRef({ x: 0, y: 0 });
   const canvasSize = useRef({ w: 0, h: 0 });
-  const dpr = window.devicePixelRatio;
+  const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1;
 
   const resizeCanvas = useCallback(() => {
     if (canvasContainerRef.current && canvasRef.current && context.current) {
