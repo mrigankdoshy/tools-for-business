@@ -4,7 +4,7 @@ Launch your startup in a day without code—start with free no-code tool recomme
 
 Browse over 100+ curated AI tools for business that will enable you to scale and create more revenue, reduce your costs, and optimize your content and customer engagement.
 
-Sure! Here's a more concise version of the descriptions:
+![Vercel Deploy](https://deploy-badge.vercel.app/vercel/toolsforbusiness?style=for-the-badge)
 
 ---
 
@@ -25,7 +25,7 @@ Sure! Here's a more concise version of the descriptions:
 - 📦 [Release Please](https://github.com/googleapis/release-please) — Automates changelog generation and versioning.
 - 🪃 [Absolute Import and Path Alias](https://nextjs.org/docs/app/building-your-application/configuring/absolute-imports-and-module-aliases) — Simplifies imports with the `@/` prefix.
 - 🗺 [Site Map](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap) — Automatically generates a `sitemap.xml` for SEO.
-- ▲ [Vercel](https://vercel.com/) — Platform for serverless deployments with automatic scaling and continuous deployment.
+- 🔺 [Vercel](https://vercel.com/) — Platform for serverless deployments with automatic scaling and continuous deployment.
 
 ## 🚀 Getting Started
 
