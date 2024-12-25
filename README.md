@@ -1,24 +1,31 @@
-# [Tools for Business](toolsforbusiness.vercel.app)
+# [Tools for Business](https://toolsforbusiness.vercel.app)
 
 Launch your startup in a day without code—start with free no-code tool recommendations. Stop waiting, create your idea now!
 
 Browse over 100+ curated AI tools for business that will enable you to scale and create more revenue, reduce your costs, and optimize your content and customer engagement.
 
+Sure! Here's a more concise version of the descriptions:
+
+---
+
 ## 👩🏻‍💻 Tech Stack
 
-- ⚡️ [Next.js 14 with App Router](https://nextjs.org)
-- ⚛️ [React 18](https://react.dev)
-- ✨ [TypeScript](https://www.typescriptlang.org) — Typed JavaScript for catching errors early and building scalable apps
-- 🎨 [Tailwind CSS 3](https://tailwindcss.com) — Configured with CSS Variables to extend the primary color
-- 💎 [Shadcn](https://ui.shadcn.com) — Beautifully designed components to use in the app
-- 🛠 [Absolute Import and Path Alias](https://nextjs.org/docs/app/building-your-application/configuring/absolute-imports-and-module-aliases) — Import components using `@/` prefix for cleaner imports
-- 🔍 [ESLint](https://eslint.org) — Find and fix code issues; auto sort imports
-- 💅 [Prettier](https://prettier.io) — Format code consistently across the project
-- 🐶 [Husky & Lint Staged](https://typicode.github.io/husky) — Run scripts on staged files before committing
-- 🤖 [Conventional Commit Lint](https://www.conventionalcommits.org/en/v1.0.0/) — Enforces Conventional Commits for a consistent commit history
-- 📦 [Release Please](https://github.com/googleapis/release-please) — Automatically generates changelogs with the `release-please` workflow
-- ⚙️ [GitHub Actions](https://github.com/features/actions) — Lint code and ensure checks pass on pull requests. Automatic Branch and Issue Autolink — Automatically create branches on issue assignment and auto-link in pull requests
-- 🗺 [Site Map](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap) — Automatically generates `sitemap.xml` for better SEO
+- ⚡️ [Next.js 15 with App Router](https://nextjs.org) — React framework for building fast, scalable web apps with file-based routing.
+- ⚛️ [React 19](https://react.dev) — Library for building declarative, component-based UIs.
+- ✨ [TypeScript](https://www.typescriptlang.org) — Statically typed superset of JavaScript for better error checking and maintainability.
+- 🎨 [Tailwind CSS 3](https://tailwindcss.com) — Utility-first CSS framework for creating custom designs quickly.
+- 💎 [Shadcn](https://ui.shadcn.com) — Collection of beautifully designed, customizable UI components.
+- 🌴 [TanStack Query](https://tanstack.com/query/latest) — Powerful library for data fetching and asynchronous state management.
+- ⚡ [Supabase](https://supabase.com) — Open-source alternative to Firebase, providing databases and storage.
+- 🛠 [Drizzle ORM](https://orm.drizzle.team) — Lightweight, TypeScript-first ORM for interacting with SQL databases.
+- 🔍 [ESLint](https://eslint.org) — Tool for identifying and fixing code issues, with import sorting.
+- 💅 [Prettier](https://prettier.io) — Opinionated code formatter to maintain consistent style.
+- 🐶 [Husky & Lint Staged](https://typicode.github.io/husky) — Pre-commit hooks for running scripts on staged files.
+- 🤖 [Conventional Commit Lint](https://www.conventionalcommits.org/en/v1.0.0/) — Enforces consistent commit message style with Conventional Commits.
+- 📦 [Release Please](https://github.com/googleapis/release-please) — Automates changelog generation and versioning.
+- 🪃 [Absolute Import and Path Alias](https://nextjs.org/docs/app/building-your-application/configuring/absolute-imports-and-module-aliases) — Simplifies imports with the `@/` prefix.
+- 🗺 [Site Map](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap) — Automatically generates a `sitemap.xml` for SEO.
+- ▲ [Vercel](https://vercel.com/) — Platform for serverless deployments with automatic scaling and continuous deployment.
 
 ## 🚀 Getting Started
 
