@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef } from 'react';
 
-import { useMousePosition } from '@/hooks/useMousePosition';
+import { useMousePosition } from '@/hooks/use-mouse-position';
 
 type Circle = {
   x: number;
