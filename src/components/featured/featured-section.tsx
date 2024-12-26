@@ -27,14 +27,14 @@ export function FeaturedSection() {
         <div className="flex w-full items-center justify-center space-x-2">
           <Switch
             id="interval"
-            onCheckedChange={(checked) => {
-              setInterval(checked ? 'year' : 'month');
-            }}
+            onCheckedChange={(checked) =>
+              setInterval(checked ? 'year' : 'month')
+            }
           />
-          <span>Annual</span>
-          <span className="inline-block whitespace-nowrap rounded-full bg-black px-2.5 py-1 text-[11px] font-semibold uppercase leading-5 tracking-wide text-white dark:bg-white dark:text-black">
+          <p>Annual</p>
+          <p className="inline-block whitespace-nowrap rounded-full bg-black px-2.5 py-1 text-[11px] font-semibold uppercase leading-5 tracking-wide text-white dark:bg-white dark:text-black">
             2 MONTHS FREE ✨
-          </span>
+          </p>
         </div>
         <FeaturedTools interval={interval} />
       </div>

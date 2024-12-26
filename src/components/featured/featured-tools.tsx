@@ -149,28 +149,31 @@ export function FeaturedTools({ interval }: FeaturedToolsProps) {
               </div>
             </div>
 
-            <motion.div
-              key={`${tool.id}-${interval}`}
-              initial="initial"
-              animate="animate"
-              variants={variants}
-              transition={{
-                duration: 0.4,
-                delay: 0.1 + index * 0.05,
-                ease: [0.21, 0.47, 0.32, 0.98],
-              }}
-              className="flex flex-row gap-1"
-            >
-              <div>
-                <h2 className="text-sm font-semibold text-gray-600 mb-1">
-                  Starting
-                </h2>
-                <span className="text-4xl font-bold text-black dark:text-white">
-                  ${interval === 'year' ? tool.yearlyPrice : tool.monthlyPrice}
-                  <span className="text-xs"> /{interval}</span>
-                </span>
-              </div>
-            </motion.div>
+            <div>
+              <h2 className="text-sm font-semibold text-gray-600 mb-1">
+                Starting
+              </h2>
+              <motion.div
+                key={`${tool.id}-${interval}`}
+                initial="initial"
+                animate="animate"
+                variants={variants}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.1 + index * 0.05,
+                  ease: [0.21, 0.47, 0.32, 0.98],
+                }}
+                className="flex flex-row gap-1"
+              >
+                <div>
+                  <span className="text-4xl font-bold text-black dark:text-white">
+                    $
+                    {interval === 'year' ? tool.yearlyPrice : tool.monthlyPrice}
+                    <span className="text-xs"> /{interval}</span>
+                  </span>
+                </div>
+              </motion.div>
+            </div>
 
             <hr className="m-0 h-px w-full border-none bg-gradient-to-r from-neutral-200/0 via-neutral-500/30 to-neutral-200/0" />
 
