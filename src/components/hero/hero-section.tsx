@@ -2,28 +2,14 @@
 
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
+import { useCycleWords } from '@/hooks/use-cycle-words';
 
 import { Button } from '@/components/ui/button';
 import { TextShimmer } from '@/components/ui/text-shimmer';
 
 const words = ['AI tool', 'library', 'plugin'];
-
-function useCycleWords(words: string[], delay = 2000) {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentWordIndex((previous) => (previous + 1) % words.length);
-    }, delay);
-
-    return () => clearInterval(intervalId);
-  }, [words.length, delay]);
-
-  return words[currentWordIndex];
-}
 
 export function HeroSection() {
   const currentWord = useCycleWords(words);
