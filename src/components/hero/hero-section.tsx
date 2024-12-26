@@ -68,7 +68,7 @@ export function HeroSection() {
           'hover:ring-primary transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-offset-2'
         )}
       >
-        <span>Explore Resources </span>
+        <p>Explore Resources</p>
         <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
       </Button>
     </section>

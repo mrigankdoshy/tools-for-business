@@ -1,4 +1,4 @@
-import { Loader } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 
 import { cn } from '@/lib/utils';
@@ -27,8 +27,8 @@ export function SubscribeButton() {
       <span className="absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform-gpu bg-white opacity-10 transition-all duration-1000 ease-out group-hover:-translate-x-96 dark:bg-black" />
       {isLoading ? (
         <div className="flex items-center gap-2">
+          <Loader2 className="h-4 w-4 animate-spin" />
           <p>Subscribing</p>
-          <Loader className="h-4 w-4 animate-spin" />
         </div>
       ) : (
         <p>Subscribe</p>

@@ -1,16 +1,31 @@
 'use client';
 
 import { CheckIcon } from '@radix-ui/react-icons';
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
-import { ArrowRightIcon, Loader } from 'lucide-react';
-import { MouseEvent, useState } from 'react';
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  Variants,
+} from 'framer-motion';
+import { ArrowRightIcon } from 'lucide-react';
+import { MouseEvent } from 'react';
 
 import { cn } from '@/lib/utils';
 
 import { Interval } from '@/components/featured/featured-section';
 import { Button } from '@/components/ui/button';
 
-const featuredTools = [
+type FeaturedTool = Readonly<{
+  id: string;
+  name: string;
+  description: string;
+  features: string[];
+  monthlyPrice: number;
+  yearlyPrice: number;
+  isMostPopular: boolean;
+}>;
+
+const featuredTools: FeaturedTool[] = [
   {
     id: 'midjourney',
     name: 'Midjourney',
@@ -72,34 +87,42 @@ const featuredTools = [
   },
 ];
 
+const variants: Variants = {
+  initial: {
+    opacity: 0,
+    y: 12,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
 type FeaturedToolsProps = Readonly<{
   interval: Interval;
 }>;
 
 export function FeaturedTools({ interval }: FeaturedToolsProps) {
-  const [isLoading, setIsLoading] = useState(false);
-  const [id, setId] = useState<string | null>(null);
-
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
+  const backgroundStyle = useMotionTemplate`
+    radial-gradient(
+      650px circle at ${mouseX}px ${mouseY}px,
+      rgba(211, 14, 233, 0.15),
+      transparent 80%
+    )
+  `;
+
   const handleMouseMove = ({ currentTarget, clientX, clientY }: MouseEvent) => {
     const { left, top } = currentTarget.getBoundingClientRect();
-
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   };
 
-  const onLearnMoreClick = async (priceId: string) => {
-    setIsLoading(true);
-    setId(priceId);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsLoading(false);
-  };
-
   return (
     <div className="mx-auto grid w-full flex-col justify-center gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {featuredTools.map((tool, idx) => (
+      {featuredTools.map((tool, index) => (
         <div key={tool.id} className="relative overflow-visible">
           <div
             className={cn(
@@ -112,15 +135,7 @@ export function FeaturedTools({ interval }: FeaturedToolsProps) {
           >
             <motion.div
               className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
-              style={{
-                background: useMotionTemplate`
-              radial-gradient(
-                650px circle at ${mouseX}px ${mouseY}px,
-                rgba(211, 14, 233, 0.15),
-                transparent 80%
-              )
-            `,
-              }}
+              style={{ background: backgroundStyle }}
             />
 
             <div className="flex items-center">
@@ -138,19 +153,10 @@ export function FeaturedTools({ interval }: FeaturedToolsProps) {
               key={`${tool.id}-${interval}`}
               initial="initial"
               animate="animate"
-              variants={{
-                initial: {
-                  opacity: 0,
-                  y: 12,
-                },
-                animate: {
-                  opacity: 1,
-                  y: 0,
-                },
-              }}
+              variants={variants}
               transition={{
                 duration: 0.4,
-                delay: 0.1 + idx * 0.05,
+                delay: 0.1 + index * 0.05,
                 ease: [0.21, 0.47, 0.32, 0.98],
               }}
               className="flex flex-row gap-1"
@@ -170,9 +176,9 @@ export function FeaturedTools({ interval }: FeaturedToolsProps) {
 
             {tool.features && tool.features.length > 0 && (
               <ul className="flex flex-col gap-2 font-normal">
-                {tool.features.map((feature, idx) => (
+                {tool.features.map((feature, index) => (
                   <li
-                    key={idx}
+                    key={index}
                     className="flex items-center gap-3 text-xs font-medium text-black dark:text-white"
                   >
                     <CheckIcon className="size-5 shrink-0 rounded-full bg-green-400 p-[2px] text-black dark:text-white" />
@@ -187,18 +193,11 @@ export function FeaturedTools({ interval }: FeaturedToolsProps) {
                 'group relative w-full gap-2 overflow-hidden tracking-tighter',
                 'hover:ring-primary transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-offset-2'
               )}
-              disabled={isLoading}
-              onClick={() => void onLearnMoreClick(tool.id)}
+              // TODO: Wire up learn more click handler
+              onClick={() => undefined}
             >
-              {(!isLoading || (isLoading && id !== tool.id)) && (
-                <>
-                  <p>Learn More</p>
-                  <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
-                </>
-              )}
-              {isLoading && id === tool.id && (
-                <Loader className="mr-2 size-4 animate-spin" />
-              )}
+              <p>Learn More</p>
+              <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
             </Button>
           </div>
         </div>
