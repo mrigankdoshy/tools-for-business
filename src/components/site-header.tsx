@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { AlignJustify, XIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -9,76 +9,82 @@ import { cn } from '@/lib/utils';
 
 import { buttonVariants } from '@/components/ui/button';
 
-const menuItems = [
+type NavBarOption = Readonly<{
+  id: string;
+  label: string;
+  href: string;
+}>;
+
+const navBarOptions: NavBarOption[] = [
   {
-    id: 1,
+    id: 'features',
     label: 'Features',
     href: '/features',
   },
   {
-    id: 2,
+    id: 'tools',
     label: 'Tools',
     href: '/tools',
   },
   {
-    id: 3,
+    id: 'blog',
     label: 'Blog',
     href: '/blog',
   },
   {
-    id: 4,
+    id: 'newsletter',
     label: 'Newsletter',
     href: '/newsletter',
   },
 ];
 
+const mobileNavBarVariants: Variants = {
+  initial: {
+    opacity: 0,
+    scale: 1,
+  },
+  animate: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+      ease: 'easeOut',
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+      delay: 0.2,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const mobileLinkVariants: Variants = {
+  initial: {
+    y: '-20px',
+    opacity: 0,
+  },
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const containerVariants: Variants = {
+  open: {
+    transition: {
+      staggerChildren: 0.06,
+    },
+  },
+};
+
 export function SiteHeader() {
-  const mobilenavbarVariant = {
-    initial: {
-      opacity: 0,
-      scale: 1,
-    },
-    animate: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.2,
-        ease: 'easeOut',
-      },
-    },
-    exit: {
-      opacity: 0,
-      transition: {
-        duration: 0.2,
-        delay: 0.2,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  const mobileLinkVar = {
-    initial: {
-      y: '-20px',
-      opacity: 0,
-    },
-    open: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  const containerVariants = {
-    open: {
-      transition: {
-        staggerChildren: 0.06,
-      },
-    },
-  };
-
   const [hamburgerMenuIsOpen, setHamburgerMenuIsOpen] = useState(false);
 
   useEffect(() => {
@@ -119,6 +125,7 @@ export function SiteHeader() {
               Sign up
             </Link>
           </div>
+
           <button
             className="ml-6 md:hidden"
             onClick={() => setHamburgerMenuIsOpen((open) => !open)}
@@ -128,11 +135,12 @@ export function SiteHeader() {
           </button>
         </div>
       </header>
+
       <AnimatePresence>
         <motion.nav
           initial="initial"
           exit="exit"
-          variants={mobilenavbarVariant}
+          variants={mobileNavBarVariants}
           animate={hamburgerMenuIsOpen ? 'animate' : 'exit'}
           className={cn(
             `bg-background/70 fixed left-0 top-0 z-50 h-screen w-full overflow-auto backdrop-blur-md `,
@@ -154,15 +162,16 @@ export function SiteHeader() {
               {hamburgerMenuIsOpen ? <XIcon /> : <AlignJustify />}
             </button>
           </div>
+
           <motion.ul
             className="flex flex-col uppercase ease-in md:flex-row md:items-center md:normal-case"
             variants={containerVariants}
             initial="initial"
             animate={hamburgerMenuIsOpen ? 'open' : 'exit'}
           >
-            {menuItems.map((item) => (
+            {navBarOptions.map((item) => (
               <motion.li
-                variants={mobileLinkVar}
+                variants={mobileLinkVariants}
                 key={item.id}
                 className="border-grey-dark border-b py-0.5 pl-6 md:border-none"
               >

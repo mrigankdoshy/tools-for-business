@@ -30,16 +30,17 @@ type FormData = z.infer<typeof userAuthSchema>;
 type UserAuthFormProps = HTMLAttributes<HTMLDivElement>;
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isGitHubLoading, setIsGitHubLoading] = useState<boolean>(false);
+
   const form = useForm<FormData>({
     resolver: zodResolver(userAuthSchema),
     defaultValues: {
       email: '',
     },
   });
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isGitHubLoading, setIsGitHubLoading] = useState<boolean>(false);
 
-  async function onSubmit(_data: FormData) {
+  const onSubmit = async (_data: FormData) => {
     setIsLoading(true);
 
     // TODO: Add signin using preferred provider
@@ -57,14 +58,14 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     return toast.success('Check your email', {
       description: 'We sent you a login link. Be sure to check your spam too.',
     });
-  }
+  };
 
-  async function onSignInGithub() {
+  const onGitHubSignIn = async () => {
     setIsGitHubLoading(true);
     // TODO: Add signin using preferred provider
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setIsGitHubLoading(false);
-  }
+  };
 
   return (
     <div className={cn('grid gap-6', className)} {...props}>
@@ -121,7 +122,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         type="button"
         className={cn(buttonVariants({ variant: 'outline' }))}
         onClick={() => {
-          onSignInGithub();
+          onGitHubSignIn();
         }}
         disabled={isLoading || isGitHubLoading}
       >
@@ -130,7 +131,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         ) : (
           <GitHubLogoIcon className="mr-2 size-4" />
         )}{' '}
-        Github
+        GitHub
       </button>
     </div>
   );

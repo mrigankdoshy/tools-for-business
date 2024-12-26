@@ -5,9 +5,7 @@ import { ReactNode } from 'react';
 
 const queryClient = new QueryClient();
 
-type TanstackQueryClientProviderProps = Readonly<{
-  children: ReactNode;
-}>;
+type TanstackQueryClientProviderProps = Readonly<{ children: ReactNode }>;
 
 export function TanstackQueryClientProvider({
   children,

@@ -1,11 +1,30 @@
+'use client';
+
 import {
   EnvelopeClosedIcon,
   InstagramLogoIcon,
   TwitterLogoIcon,
 } from '@radix-ui/react-icons';
 import Link from 'next/link';
+import { ReactNode } from 'react';
 
-const footerNavs = [
+type FooterNavItem = Readonly<{
+  href: string;
+  name: string;
+}>;
+
+type FooterNavOption = Readonly<{
+  label: string;
+  items: FooterNavItem[];
+}>;
+
+type FooterSocial = Readonly<{
+  href: string;
+  name: string;
+  icon: ReactNode;
+}>;
+
+const footerNavOptions: FooterNavOption[] = [
   {
     label: 'Product',
     items: [
@@ -14,7 +33,6 @@ const footerNavs = [
       { href: '/blog', name: 'Blog' },
     ],
   },
-
   {
     label: 'Community',
     items: [
@@ -31,7 +49,7 @@ const footerNavs = [
   },
 ];
 
-const footerSocials = [
+const footerSocials: FooterSocial[] = [
   {
     href: '',
     name: 'Instagram',
@@ -63,7 +81,7 @@ export function SiteFooter() {
             <p className="max-w-xs">Tools for Business</p>
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-10">
-            {footerNavs.map((nav) => (
+            {footerNavOptions.map((nav) => (
               <div key={nav.label}>
                 <h2 className="mb-6 text-sm font-medium uppercase tracking-tighter text-gray-900 dark:text-white">
                   {nav.label}
