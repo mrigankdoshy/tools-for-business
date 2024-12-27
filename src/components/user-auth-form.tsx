@@ -8,8 +8,6 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import * as z from 'zod';
 
-import { cn } from '@/lib/utils';
-
 import { buttonVariants } from '@/shared/ui/button';
 import {
   Form,
@@ -19,6 +17,7 @@ import {
   FormMessage,
 } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
+import { cn } from '@/shared/utils/cn';
 
 export const userAuthSchema = z.object({
   email: z.string().email(),

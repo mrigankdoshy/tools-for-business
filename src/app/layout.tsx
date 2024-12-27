@@ -4,12 +4,11 @@ import { ReactNode } from 'react';
 
 import '@/styles/globals.css';
 
-import { cn } from '@/lib/utils';
-
 import { TanstackQueryClientProvider } from '@/components/tanstack-query-client-provider';
 import { ThemeProvider } from '@/components/theme-provider';
 
 import { Toaster } from '@/shared/ui/sonner';
+import { cn } from '@/shared/utils/cn';
 
 import { siteConfig } from '@/constant/config';
 

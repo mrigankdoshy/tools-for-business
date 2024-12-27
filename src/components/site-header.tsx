@@ -5,9 +5,8 @@ import { AlignJustify, XIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-import { cn } from '@/lib/utils';
-
 import { buttonVariants } from '@/shared/ui/button';
+import { cn } from '@/shared/utils/cn';
 
 type NavBarOption = Readonly<{
   id: string;

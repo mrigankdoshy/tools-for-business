@@ -3,11 +3,10 @@
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
-import { cn } from '@/lib/utils';
-
 import { Tools } from '@/components/tools/tools';
 
 import { buttonVariants } from '@/shared/ui/button';
+import { cn } from '@/shared/utils/cn';
 
 export function ToolsSection() {
   return (

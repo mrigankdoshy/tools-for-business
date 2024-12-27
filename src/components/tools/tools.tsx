@@ -4,11 +4,10 @@ import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { MouseEvent } from 'react';
 
-import { cn } from '@/lib/utils';
-
 import { useTools } from '@/components/tools/use-tools';
 
 import { Skeleton } from '@/shared/ui/skeleton';
+import { cn } from '@/shared/utils/cn';
 
 export function Tools() {
   const { data: tools, isLoading, error } = useTools();

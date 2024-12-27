@@ -3,10 +3,9 @@
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 
-import { cn } from '@/lib/utils';
-
 import { Button } from '@/shared/ui/button';
 import { TextShimmer } from '@/shared/ui/text-shimmer';
+import { cn } from '@/shared/utils/cn';
 import { useCycleWords } from '@/shared/utils/use-cycle-words';
 
 const words = ['AI tool', 'library', 'plugin'];
