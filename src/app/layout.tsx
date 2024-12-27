@@ -7,9 +7,10 @@ import '@/shared/styles/globals.css';
 import { TanstackQueryClientProvider } from '@/features/query/tanstack-query-client-provider';
 import { ThemeProvider } from '@/features/theme/theme-provider';
 
-import { siteConfig } from '@/shared/constant/config';
 import { Toaster } from '@/shared/ui/sonner';
 import { cn } from '@/shared/utils/cn';
+
+import { siteConfig } from '@/site/config';
 
 const fontSans = Inter({
   subsets: ['latin'],
