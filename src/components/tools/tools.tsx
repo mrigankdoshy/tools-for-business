@@ -5,9 +5,10 @@ import { ChevronRight } from 'lucide-react';
 import { MouseEvent } from 'react';
 
 import { cn } from '@/lib/utils';
-import { useTools } from '@/hooks/use-tools';
 
-import { Skeleton } from '@/components/ui/skeleton';
+import { useTools } from '@/components/tools/use-tools';
+
+import { Skeleton } from '@/shared/ui/skeleton';
 
 export function Tools() {
   const { data: tools, isLoading, error } = useTools();

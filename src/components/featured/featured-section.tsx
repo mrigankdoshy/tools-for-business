@@ -3,7 +3,8 @@
 import { useState } from 'react';
 
 import { FeaturedTools } from '@/components/featured/featured-tools';
-import { Switch } from '@/components/ui/switch';
+
+import { Switch } from '@/shared/ui/switch';
 
 export type Interval = 'month' | 'year';
 

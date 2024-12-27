@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-import { BackButton } from '@/components/ui/back-button';
 import { UserAuthForm } from '@/components/user-auth-form';
+
+import { BackButton } from '@/shared/ui/back-button';
 
 export const metadata: Metadata = {
   title: 'Sign Up',

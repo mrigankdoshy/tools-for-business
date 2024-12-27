@@ -8,7 +8,8 @@ import { cn } from '@/lib/utils';
 
 import { TanstackQueryClientProvider } from '@/components/tanstack-query-client-provider';
 import { ThemeProvider } from '@/components/theme-provider';
-import { Toaster } from '@/components/ui/sonner';
+
+import { Toaster } from '@/shared/ui/sonner';
 
 import { siteConfig } from '@/constant/config';
 

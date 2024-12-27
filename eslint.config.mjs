@@ -58,12 +58,12 @@ export default [
     },
 
     rules: {
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
       'no-unused-vars': 'off',
       'no-console': 'warn',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
       'react/no-unescaped-entities': 'off',
       'react/display-name': 'off',
-
       'react/jsx-curly-brace-presence': [
         'warn',
         {
@@ -71,10 +71,7 @@ export default [
           children: 'never',
         },
       ],
-
-      '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'warn',
-
       'unused-imports/no-unused-vars': [
         'warn',
         {
@@ -84,20 +81,28 @@ export default [
           argsIgnorePattern: '^_',
         },
       ],
-
       'simple-import-sort/exports': 'warn',
-
       'simple-import-sort/imports': [
         'warn',
         {
           groups: [
+            // ext library & side effect imports
             ['^@?\\w', '^\\u0000'],
+            // {s}css files
             ['^.+\\.s?css$'],
-            ['^@/lib', '^@/hooks'],
+            // Lib
+            ['^@/lib'],
+            // static data
             ['^@/data'],
-            ['^@/components', '^@/container'],
+            // components
+            ['^@/components'],
+            // shared
+            ['^@/shared'],
+            // zustand store
             ['^@/store'],
+            // Other imports
             ['^@/'],
+            // relative paths up until 3 level
             [
               '^\\./?$',
               '^\\.(?!/?$)',
@@ -109,6 +114,7 @@ export default [
               '^\\.\\./\\.\\./\\.\\.(?!/?$)',
             ],
             ['^@/types'],
+            // other that didnt fit in
             ['^'],
           ],
         },

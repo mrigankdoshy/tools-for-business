@@ -10,15 +10,15 @@ import * as z from 'zod';
 
 import { cn } from '@/lib/utils';
 
-import { buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/shared/ui/button';
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
+} from '@/shared/ui/form';
+import { Input } from '@/shared/ui/input';
 
 export const userAuthSchema = z.object({
   email: z.string().email(),

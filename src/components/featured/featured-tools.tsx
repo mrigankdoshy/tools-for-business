@@ -13,7 +13,8 @@ import { MouseEvent } from 'react';
 import { cn } from '@/lib/utils';
 
 import { Interval } from '@/components/featured/featured-section';
-import { Button } from '@/components/ui/button';
+
+import { Button } from '@/shared/ui/button';
 
 type FeaturedTool = Readonly<{
   id: string;
