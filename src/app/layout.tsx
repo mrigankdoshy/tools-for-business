@@ -2,15 +2,14 @@ import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import { ReactNode } from 'react';
 
-import '@/styles/globals.css';
+import '@/shared/styles/globals.css';
 
-import { TanstackQueryClientProvider } from '@/components/tanstack-query-client-provider';
-import { ThemeProvider } from '@/components/theme-provider';
+import { TanstackQueryClientProvider } from '@/features/query/tanstack-query-client-provider';
+import { ThemeProvider } from '@/features/theme/theme-provider';
 
+import { siteConfig } from '@/shared/constant/config';
 import { Toaster } from '@/shared/ui/sonner';
 import { cn } from '@/shared/utils/cn';
-
-import { siteConfig } from '@/constant/config';
 
 const fontSans = FontSans({
   subsets: ['latin'],

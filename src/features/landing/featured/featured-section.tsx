@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { FeaturedTools } from '@/components/featured/featured-tools';
+import { FeaturedTools } from '@/features/landing/featured/featured-tools';
 
 import { Switch } from '@/shared/ui/switch';
 

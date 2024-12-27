@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-import { UserAuthForm } from '@/components/user-auth-form';
+import { UserAuthForm } from '@/features/auth/user-auth-form';
 
 import { BackButton } from '@/shared/ui/back-button';
 

@@ -10,7 +10,7 @@ import {
 import { ArrowRightIcon } from 'lucide-react';
 import { MouseEvent } from 'react';
 
-import { Interval } from '@/components/featured/featured-section';
+import { Interval } from '@/features/landing/featured/featured-section';
 
 import { Button } from '@/shared/ui/button';
 import { cn } from '@/shared/utils/cn';

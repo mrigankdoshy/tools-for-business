@@ -3,7 +3,7 @@
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
-import { Tools } from '@/components/tools/tools';
+import { Tools } from '@/features/landing/tools/tools';
 
 import { buttonVariants } from '@/shared/ui/button';
 import { cn } from '@/shared/utils/cn';

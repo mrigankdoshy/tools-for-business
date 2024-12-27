@@ -4,7 +4,7 @@ import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { MouseEvent } from 'react';
 
-import { useTools } from '@/components/tools/use-tools';
+import { useTools } from '@/features/landing/tools/use-tools';
 
 import { Skeleton } from '@/shared/ui/skeleton';
 import { cn } from '@/shared/utils/cn';

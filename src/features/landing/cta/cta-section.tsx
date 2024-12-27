@@ -2,9 +2,9 @@
 
 import { CalendarHeart } from 'lucide-react';
 
-import { AnimatedIcons } from '@/components/cta/animated-icons';
-import { CallToActionTitle } from '@/components/cta/cta-title';
-import { SubscribeButton } from '@/components/cta/subscribe-button';
+import { AnimatedIcons } from '@/features/landing/cta/animated-icons';
+import { CallToActionTitle } from '@/features/landing/cta/cta-title';
+import { SubscribeButton } from '@/features/landing/cta/subscribe-button';
 
 import { Input } from '@/shared/ui/input';
 

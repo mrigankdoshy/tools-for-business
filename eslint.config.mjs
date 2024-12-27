@@ -94,8 +94,8 @@ export default [
             ['^@/lib'],
             // static data
             ['^@/data'],
-            // components
-            ['^@/components'],
+            // features
+            ['^@/features'],
             // shared
             ['^@/shared'],
             // zustand store
