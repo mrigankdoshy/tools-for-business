@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter as FontSans } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 
 import '@/shared/styles/globals.css';
@@ -11,7 +11,7 @@ import { siteConfig } from '@/shared/constant/config';
 import { Toaster } from '@/shared/ui/sonner';
 import { cn } from '@/shared/utils/cn';
 
-const fontSans = FontSans({
+const fontSans = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
 });

@@ -6,7 +6,7 @@ import { ToolsSection } from '@/features/landing/tools/tools-section';
 import { Particles } from '@/shared/ui/particles';
 import { SphereMask } from '@/shared/ui/sphere-mask';
 
-export default async function Page() {
+export async function Landing() {
   return (
     <>
       <HeroSection />
