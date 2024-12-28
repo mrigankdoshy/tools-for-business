@@ -6,7 +6,7 @@ Browse over 100+ curated AI tools for business that will enable you to scale and
 
 ![Vercel Deploy](https://deploy-badge.vercel.app/vercel/toolsforbusiness?style=for-the-badge)
 
-<img width="1512" alt="image" src="https://github.com/user-attachments/assets/93428641-ddca-44da-be4d-9c1b9521a52e" />
+![Landing Page](https://github.com/user-attachments/assets/0004af6a-e3f3-4788-ab67-6f97c283602b)
 
 ## 👩🏻‍💻 Tech Stack
 
