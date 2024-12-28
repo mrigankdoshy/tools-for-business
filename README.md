@@ -1,5 +1,3 @@
-<img width="1512" alt="image" src="https://github.com/user-attachments/assets/93428641-ddca-44da-be4d-9c1b9521a52e" />
-
 # [Tools for Business](https://toolsforbusiness.vercel.app)
 
 Launch your startup in a day without code—start with free no-code tool recommendations. Stop waiting, create your idea now!
@@ -7,6 +5,8 @@ Launch your startup in a day without code—start with free no-code tool recomme
 Browse over 100+ curated AI tools for business that will enable you to scale and create more revenue, reduce your costs, and optimize your content and customer engagement.
 
 ![Vercel Deploy](https://deploy-badge.vercel.app/vercel/toolsforbusiness?style=for-the-badge)
+
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/93428641-ddca-44da-be4d-9c1b9521a52e" />
 
 ## 👩🏻‍💻 Tech Stack
 
