@@ -32,25 +32,11 @@ export function FlipWords({
   }, [isAnimating, duration, startAnimation]);
 
   return (
-    <AnimatePresence
-      onExitComplete={() => {
-        setIsAnimating(false);
-      }}
-    >
+    <AnimatePresence onExitComplete={() => setIsAnimating(false)}>
       <motion.div
-        initial={{
-          opacity: 0,
-          y: 10,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          type: 'spring',
-          stiffness: 100,
-          damping: 10,
-        }}
+        key={currentWord}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
         exit={{
           opacity: 0,
           y: -40,
@@ -59,21 +45,18 @@ export function FlipWords({
           scale: 1.5,
           position: 'absolute',
         }}
+        transition={{ type: 'spring', stiffness: 100, damping: 10 }}
         className={cn(
           'relative z-10 inline-block px-2 text-left text-primary',
           className
         )}
-        key={currentWord}
       >
         {currentWord.split(' ').map((word, wordIndex) => (
           <motion.span
             key={word + wordIndex}
             initial={{ opacity: 0, y: 10, filter: 'blur(8px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{
-              delay: wordIndex * 0.3,
-              duration: 0.3,
-            }}
+            transition={{ delay: wordIndex * 0.3, duration: 0.3 }}
             className="inline-block whitespace-nowrap"
           >
             {word.split('').map((letter, letterIndex) => (
