@@ -1,8 +1,6 @@
-import Link from 'next/link';
-
 import { UserAuthForm } from '@/features/auth/user-auth-form';
-
 import { BackButton } from '@/shared/ui/back-button';
+import Link from 'next/link';
 
 export function SignUp() {
   return (
@@ -13,12 +11,12 @@ export function SignUp() {
           <h1 className="text-2xl font-semibold tracking-tight">
             Welcome to Tools for Business
           </h1>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-sm text-muted-foreground">
             Sign up for an account
           </p>
         </div>
         <UserAuthForm />
-        <p className="text-muted-foreground px-8 text-center text-sm">
+        <p className="px-8 text-center text-sm text-muted-foreground">
           <Link
             href="/signin"
             className="hover:text-brand underline underline-offset-4"

@@ -1,16 +1,12 @@
+import { TanstackQueryClientProvider } from '@/features/query/tanstack-query-client-provider';
+import { ThemeProvider } from '@/features/theme/theme-provider';
+import '@/shared/styles/globals.css';
+import { Toaster } from '@/shared/ui/sonner';
+import { cn } from '@/shared/utils/cn';
+import { siteConfig } from '@/site/config';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
-
-import '@/shared/styles/globals.css';
-
-import { TanstackQueryClientProvider } from '@/features/query/tanstack-query-client-provider';
-import { ThemeProvider } from '@/features/theme/theme-provider';
-
-import { Toaster } from '@/shared/ui/sonner';
-import { cn } from '@/shared/utils/cn';
-
-import { siteConfig } from '@/site/config';
 
 const fontSans = Inter({
   subsets: ['latin'],
@@ -64,7 +60,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'bg-background min-h-screen font-sans antialiased',
+          'min-h-screen bg-background font-sans antialiased',
           fontSans.variable
         )}
       >

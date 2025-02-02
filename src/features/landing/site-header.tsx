@@ -1,12 +1,11 @@
 'use client';
 
+import { buttonVariants } from '@/shared/ui/button';
+import { cn } from '@/shared/utils/cn';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { AlignJustify, XIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-
-import { buttonVariants } from '@/shared/ui/button';
-import { cn } from '@/shared/utils/cn';
 
 type NavBarOption = Readonly<{
   id: string;
@@ -104,7 +103,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="animate-fade-in fixed left-0 top-0 z-50 w-full -translate-y-4 border-b opacity-0 backdrop-blur-md [--animation-delay:600ms]">
+      <header className="fixed left-0 top-0 z-50 w-full -translate-y-4 animate-fade-in border-b opacity-0 backdrop-blur-md [--animation-delay:600ms]">
         <div className="container flex h-14 items-center justify-between">
           <Link className="text-md flex items-center" href="/">
             Tools for Business
@@ -142,7 +141,7 @@ export function SiteHeader() {
           variants={mobileNavBarVariants}
           animate={hamburgerMenuIsOpen ? 'animate' : 'exit'}
           className={cn(
-            `bg-background/70 fixed left-0 top-0 z-50 h-screen w-full overflow-auto backdrop-blur-md `,
+            `fixed left-0 top-0 z-50 h-screen w-full overflow-auto bg-background/70 backdrop-blur-md`,
             {
               'pointer-events-none': !hamburgerMenuIsOpen,
             }

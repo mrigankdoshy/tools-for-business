@@ -1,13 +1,11 @@
 'use client';
 
+import { useTools } from '@/features/landing/tools/use-tools';
+import { Skeleton } from '@/shared/ui/skeleton';
+import { cn } from '@/shared/utils/cn';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { MouseEvent } from 'react';
-
-import { useTools } from '@/features/landing/tools/use-tools';
-
-import { Skeleton } from '@/shared/ui/skeleton';
-import { cn } from '@/shared/utils/cn';
 
 export function Tools() {
   const { data: tools, isLoading, error } = useTools();
@@ -63,7 +61,7 @@ export function Tools() {
 
           <div className="flex items-center">
             <div className="ml-4">
-              <h2 className="text-base font-semibold leading-7 my-2">
+              <h2 className="my-2 text-base font-semibold leading-7">
                 {tool.name}
               </h2>
               <p className="h-16 text-sm leading-5 text-black/70 dark:text-white">

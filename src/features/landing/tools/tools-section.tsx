@@ -1,23 +1,21 @@
 'use client';
 
-import { ChevronRight } from 'lucide-react';
-import Link from 'next/link';
-
 import { Tools } from '@/features/landing/tools/tools';
-
 import { buttonVariants } from '@/shared/ui/button';
 import { cn } from '@/shared/utils/cn';
+import { ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 
 export function ToolsSection() {
   return (
     <section id="pricing">
       <div className="mx-auto flex max-w-screen-xl flex-col gap-8 px-4 py-14 md:px-8">
         <div className="mx-auto max-w-5xl text-center">
-          <h2 className="text-5xl font-bold tracking-tight text-black sm:text-6xl dark:text-white">
+          <h2 className="text-5xl font-bold tracking-tight text-black dark:text-white sm:text-6xl">
             Build your tool kit.
           </h2>
 
-          <p className="animate-fade-in mt-6 -translate-y-4 text-balance text-lg tracking-tight text-gray-400 opacity-0 [--animation-delay:400ms] md:text-xl">
+          <p className="mt-6 -translate-y-4 animate-fade-in text-balance text-lg tracking-tight text-gray-400 opacity-0 [--animation-delay:400ms] md:text-xl">
             92% of builders spend over 5 hours finding tools, be the 8%.
           </p>
         </div>

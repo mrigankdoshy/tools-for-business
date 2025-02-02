@@ -1,6 +1,5 @@
-import type { Metadata } from 'next';
-
 import { Login } from '@/features/auth/login';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Login',

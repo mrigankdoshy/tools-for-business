@@ -1,10 +1,8 @@
 'use client';
 
-import Link from 'next/link';
-
 import { UserAuthForm } from '@/features/auth/user-auth-form';
-
 import { BackButton } from '@/shared/ui/back-button';
+import Link from 'next/link';
 
 export function Login() {
   return (
@@ -15,10 +13,10 @@ export function Login() {
           <h1 className="text-2xl font-semibold tracking-tight">
             Welcome back
           </h1>
-          <p className="text-muted-foreground text-sm">Login to your account</p>
+          <p className="text-sm text-muted-foreground">Login to your account</p>
         </div>
         <UserAuthForm />
-        <p className="text-muted-foreground px-8 text-center text-sm">
+        <p className="px-8 text-center text-sm text-muted-foreground">
           <Link
             href="/signup"
             className="hover:text-brand underline underline-offset-4"

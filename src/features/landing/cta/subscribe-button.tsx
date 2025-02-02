@@ -1,8 +1,7 @@
-import { Loader2 } from 'lucide-react';
-import { useState } from 'react';
-
 import { Button } from '@/shared/ui/button';
 import { cn } from '@/shared/utils/cn';
+import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
 
 export function SubscribeButton() {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,8 +15,8 @@ export function SubscribeButton() {
   return (
     <Button
       className={cn(
-        'group relative overflow-hidden tracking-tighter flex-shrink-0',
-        'hover:ring-primary transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-offset-2'
+        'group relative flex-shrink-0 overflow-hidden tracking-tighter',
+        'transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-2'
       )}
       disabled={isLoading}
       onClick={onSubscribeClick}

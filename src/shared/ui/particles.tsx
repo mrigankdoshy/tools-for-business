@@ -1,8 +1,7 @@
 'use client';
 
-import { useCallback, useEffect, useRef } from 'react';
-
 import { useMousePosition } from '@/shared/utils/use-mouse-position';
+import { useCallback, useEffect, useRef } from 'react';
 
 type Circle = {
   x: number;

@@ -1,6 +1,5 @@
-import type { CSSProperties, ReactNode } from 'react';
-
 import { cn } from '@/shared/utils/cn';
+import type { CSSProperties, ReactNode } from 'react';
 
 type TextShimmerProps = {
   children: ReactNode;

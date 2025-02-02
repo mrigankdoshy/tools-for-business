@@ -1,8 +1,7 @@
-import { Activity, Brain, Code, Cpu, Shield, Terminal } from 'lucide-react';
-import { useEffect, useState } from 'react';
-
 import { Card, CardProps } from '@/shared/ui/card';
 import { Marquee } from '@/shared/ui/marquee';
+import { Activity, Brain, Code, Cpu, Shield, Terminal } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const tiles: CardProps[] = [
   {

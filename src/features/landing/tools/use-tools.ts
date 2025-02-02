@@ -1,6 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-
 import type { Tool } from '@/db/schema';
+import { useQuery } from '@tanstack/react-query';
 
 export function useTools() {
   return useQuery<Tool[]>({

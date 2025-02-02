@@ -116,7 +116,7 @@ export function SiteFooter() {
               </Link>
             ))}
           </div>
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
             Copyright © {new Date().getFullYear()}{' '}
             <Link href="/" className="cursor-pointer">
               Mrigank Doshy

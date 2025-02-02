@@ -1,5 +1,8 @@
 'use client';
 
+import { Interval } from '@/features/landing/featured/featured-section';
+import { Button } from '@/shared/ui/button';
+import { cn } from '@/shared/utils/cn';
 import { CheckIcon } from '@radix-ui/react-icons';
 import {
   motion,
@@ -9,11 +12,6 @@ import {
 } from 'framer-motion';
 import { ArrowRightIcon } from 'lucide-react';
 import { MouseEvent } from 'react';
-
-import { Interval } from '@/features/landing/featured/featured-section';
-
-import { Button } from '@/shared/ui/button';
-import { cn } from '@/shared/utils/cn';
 
 type FeaturedTool = Readonly<{
   id: string;
@@ -128,7 +126,7 @@ export function FeaturedTools({ interval }: FeaturedToolsProps) {
             className={cn(
               'group relative flex max-w-[400px] flex-col gap-8 overflow-hidden rounded-2xl border p-4 text-black dark:text-white',
               {
-                'border-none glow-border': tool.isMostPopular,
+                'glow-border border-none': tool.isMostPopular,
               }
             )}
             onMouseMove={handleMouseMove}
@@ -150,7 +148,7 @@ export function FeaturedTools({ interval }: FeaturedToolsProps) {
             </div>
 
             <div>
-              <h2 className="text-sm font-semibold text-gray-600 mb-1">
+              <h2 className="mb-1 text-sm font-semibold text-gray-600">
                 Starting
               </h2>
               <motion.div
@@ -194,7 +192,7 @@ export function FeaturedTools({ interval }: FeaturedToolsProps) {
             <Button
               className={cn(
                 'group relative w-full gap-2 overflow-hidden tracking-tighter',
-                'hover:ring-primary transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-offset-2'
+                'transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-2'
               )}
               // TODO: Wire up learn more click handler
               onClick={() => undefined}

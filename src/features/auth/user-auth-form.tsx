@@ -1,13 +1,5 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { GitHubLogoIcon } from '@radix-ui/react-icons';
-import { Loader2 } from 'lucide-react';
-import { HTMLAttributes, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { toast } from 'sonner';
-import * as z from 'zod';
-
 import { buttonVariants } from '@/shared/ui/button';
 import {
   Form,
@@ -18,6 +10,13 @@ import {
 } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
 import { cn } from '@/shared/utils/cn';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { GitHubLogoIcon } from '@radix-ui/react-icons';
+import { Loader2 } from 'lucide-react';
+import { HTMLAttributes, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+import * as z from 'zod';
 
 export const userAuthSchema = z.object({
   email: z.string().email(),
@@ -39,7 +38,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     },
   });
 
-  const onSubmit = async (_data: FormData) => {
+  const onSubmit = async () => {
     setIsLoading(true);
 
     // TODO: Add signin using preferred provider
@@ -112,7 +111,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           <span className="w-full border-t" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-background text-muted-foreground px-2">
+          <span className="bg-background px-2 text-muted-foreground">
             Or continue with
           </span>
         </div>

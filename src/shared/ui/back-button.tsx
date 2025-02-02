@@ -1,8 +1,7 @@
-import { ChevronLeft } from 'lucide-react';
-import Link from 'next/link';
-
 import { buttonVariants } from '@/shared/ui/button';
 import { cn } from '@/shared/utils/cn';
+import { ChevronLeft } from 'lucide-react';
+import Link from 'next/link';
 
 export function BackButton() {
   return (

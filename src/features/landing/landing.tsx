@@ -2,7 +2,6 @@ import { CallToActionSection } from '@/features/landing/cta/cta-section';
 import { FeaturedSection } from '@/features/landing/featured/featured-section';
 import { HeroSection } from '@/features/landing/hero/hero-section';
 import { ToolsSection } from '@/features/landing/tools/tools-section';
-
 import { Particles } from '@/shared/ui/particles';
 import { SphereMask } from '@/shared/ui/sphere-mask';
 
