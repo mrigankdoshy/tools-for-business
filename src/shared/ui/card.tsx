@@ -1,41 +1,73 @@
+'use client';
+
 import { cn } from '@/shared/utils/cn';
-import { motion, useAnimation, useInView } from 'framer-motion';
-import { ReactNode, useEffect, useId, useRef } from 'react';
+import { useMousePosition } from '@/shared/utils/use-mouse-position';
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { HTMLAttributes, useEffect, useRef } from 'react';
 
-export type CardProps = {
-  icon: ReactNode;
-  bg: ReactNode;
-};
+type CardProps = HTMLAttributes<HTMLDivElement> &
+  Readonly<{
+    gradientSize?: number;
+    gradientColor?: string;
+    gradientOpacity?: number;
+    gradientFrom?: string;
+    gradientTo?: string;
+  }>;
 
-export function Card(card: CardProps) {
-  const id = useId();
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
+export function Card({
+  children,
+  className,
+  gradientSize = 200,
+  gradientColor = 'rgba(211, 14, 233, 0.15)',
+  gradientOpacity = 0.8,
+  gradientFrom = '#fb00ff',
+  gradientTo = '#ba65ff',
+}: CardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const mouseX = useMotionValue(-gradientSize);
+  const mouseY = useMotionValue(-gradientSize);
+
+  const { x: clientX, y: clientY } = useMousePosition();
+
+  const radialGradientBackground = useMotionTemplate`
+    radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)
+  `;
+
+  const layeredGradientBackground = useMotionTemplate`
+    radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientFrom}, ${gradientTo}, hsl(var(--border)) 100%)
+  `;
 
   useEffect(() => {
-    if (inView) {
-      controls.start({
-        opacity: 1,
-        transition: { delay: Math.random() * 2, ease: 'easeOut', duration: 1 },
-      });
+    if (cardRef.current) {
+      const { left, top } = cardRef.current.getBoundingClientRect();
+      mouseX.set(clientX - left);
+      mouseY.set(clientY - top);
     }
-  }, [controls, inView]);
+  }, [clientX, clientY, mouseX, mouseY]);
+
+  useEffect(() => {
+    mouseX.set(-gradientSize);
+    mouseY.set(-gradientSize);
+  }, [gradientSize, mouseX, mouseY]);
 
   return (
-    <motion.div
-      key={id}
-      ref={ref}
-      initial={{ opacity: 0 }}
-      animate={controls}
-      className={cn(
-        'relative size-20 cursor-pointer overflow-hidden rounded-2xl border p-4',
-        'bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]',
-        'transform-gpu dark:bg-transparent dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]'
-      )}
+    <div
+      ref={cardRef}
+      className={cn('group relative flex size-full rounded-xl', className)}
     >
-      {card.icon}
-      {card.bg}
-    </motion.div>
+      <div className="absolute inset-px z-10 rounded-xl bg-background" />
+      <div className="relative z-30">{children}</div>
+      <motion.div
+        className="pointer-events-none absolute inset-px z-10 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          background: radialGradientBackground,
+          opacity: gradientOpacity,
+        }}
+      />
+      <motion.div
+        className="pointer-events-none absolute inset-0 rounded-xl bg-border duration-300 group-hover:opacity-100"
+        style={{ background: layeredGradientBackground }}
+      />
+    </div>
   );
 }

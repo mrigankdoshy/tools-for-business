@@ -47,7 +47,7 @@ export function FlipWords({
         }}
         transition={{ type: 'spring', stiffness: 100, damping: 10 }}
         className={cn(
-          'relative z-10 inline-block px-2 text-left text-primary',
+          'relative z-10 inline-block text-left text-primary',
           className
         )}
       >

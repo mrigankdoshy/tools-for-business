@@ -33,7 +33,9 @@ export function HeroSection() {
       <h1 className="animate-fade-in bg-gradient-to-br from-primary via-primary/80 to-primary/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent opacity-0 [--animation-delay:200ms] md:text-6xl lg:text-7xl">
         <LayoutGroup>
           <motion.span layout>Find that </motion.span>
-          <FlipWords words={words} /> <br />
+          <motion.span layout>
+            <FlipWords words={words} /> <br />
+          </motion.span>
           <motion.span layout> that works for you</motion.span>
         </LayoutGroup>
       </h1>
