@@ -1,5 +1,7 @@
 'use client';
 
+import { Input } from '@/shared/ui/input';
+import { SubscribeButton } from '@/shared/ui/subscribe-button';
 import {
   EnvelopeClosedIcon,
   InstagramLogoIcon,
@@ -79,6 +81,13 @@ export function SiteFooter() {
               </span>
             </Link>
             <p className="max-w-xs">Tools for Business</p>
+            <div className="flex items-center gap-2">
+              <Input
+                placeholder="Enter your email"
+                className="flex-grow basis-0"
+              />
+              <SubscribeButton />
+            </div>
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-10">
             {footerNavOptions.map((nav) => (
