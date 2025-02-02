@@ -1,17 +1,15 @@
 'use client';
 
 import { Button } from '@/shared/ui/button';
+import { FlipWords } from '@/shared/ui/flip-words';
 import { TextShimmer } from '@/shared/ui/text-shimmer';
 import { cn } from '@/shared/utils/cn';
-import { useCycleWords } from '@/shared/utils/use-cycle-words';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
-import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
+import { LayoutGroup, motion } from 'framer-motion';
 
 const words = ['AI tool', 'library', 'plugin'];
 
 export function HeroSection() {
-  const currentWord = useCycleWords(words);
-
   return (
     <section
       id="hero"
@@ -26,18 +24,7 @@ export function HeroSection() {
       <h1 className="-translate-y-4 animate-fade-in text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent opacity-0 [--animation-delay:200ms] dark:from-white dark:to-white/40 sm:text-6xl md:text-7xl lg:text-8xl">
         <LayoutGroup>
           <motion.span layout>Find that </motion.span>
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={currentWord}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6, ease: 'easeInOut' }}
-              className="inline-block text-primary"
-            >
-              {currentWord}
-            </motion.span>
-          </AnimatePresence>
+          <FlipWords words={words} /> <br />
           <motion.span layout> that works for you</motion.span>
         </LayoutGroup>
       </h1>
