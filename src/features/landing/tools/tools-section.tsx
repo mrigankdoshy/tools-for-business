@@ -2,7 +2,7 @@
 
 import { ToolCard } from '@/features/landing/tools/tool-card';
 import { useTools } from '@/features/landing/tools/use-tools';
-import { AnimatedTabs, Tab } from '@/shared/ui/animated-tabs';
+import { AnimatedTabs, type Tab } from '@/shared/ui/animated-tabs';
 import { buttonVariants } from '@/shared/ui/button';
 import { Input } from '@/shared/ui/input';
 import { Skeleton } from '@/shared/ui/skeleton';
@@ -15,10 +15,10 @@ import { useMemo } from 'react';
 
 const tabs: Tab[] = [
   { id: 'all', label: 'All' },
-  { id: 'design', label: 'Design' },
   { id: 'development', label: 'Development' },
-  { id: 'learning', label: 'Learning' },
-  { id: 'productivity', label: 'Productivity' },
+  { id: 'generative', label: 'Generative' },
+  { id: 'language', label: 'Language' },
+  { id: 'writing', label: 'Writing' },
 ];
 
 export function ToolsSection() {
@@ -52,10 +52,21 @@ export function ToolsSection() {
   return (
     <section id="pricing">
       <div className="mx-auto flex max-w-screen-lg flex-col gap-8 px-4 py-14 md:px-8">
-        <div className="flex items-center justify-between">
-          <Input type="search" placeholder="Search" className="max-w-xs" />
+        <motion.div
+          className="flex items-center justify-between"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
+          >
+            <Input type="search" placeholder="Search" className="max-w-xs" />
+          </motion.div>
           <AnimatedTabs tabs={tabs} />
-        </div>
+        </motion.div>
         <div className="mx-auto grid flex-col justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence>
             {toolsToDisplay?.map((tool, index) => (
@@ -83,7 +94,12 @@ export function ToolsSection() {
         </div>
       </div>
       {isSmallScreen && (
-        <div className="relative mx-auto px-6 text-center md:px-8">
+        <motion.div
+          className="relative mx-auto px-6 text-center md:px-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6, ease: 'easeOut' }}
+        >
           <Link
             href="#"
             className={cn(
@@ -94,7 +110,7 @@ export function ToolsSection() {
             Explore All Tools
             <ChevronRight className="ml-1 size-4 transition-all duration-300 ease-out group-hover:translate-x-1" />
           </Link>
-        </div>
+        </motion.div>
       )}
     </section>
   );
