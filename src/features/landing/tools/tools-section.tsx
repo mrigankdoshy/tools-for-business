@@ -2,6 +2,7 @@
 
 import { ToolCard } from '@/features/landing/tools/tool-card';
 import { useTools } from '@/features/landing/tools/use-tools';
+import { AnimatedTabs, Tab } from '@/shared/ui/animated-tabs';
 import { buttonVariants } from '@/shared/ui/button';
 import { Skeleton } from '@/shared/ui/skeleton';
 import { cn } from '@/shared/utils/cn';
@@ -10,6 +11,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { useMemo } from 'react';
+
+const tabs: Tab[] = [
+  { id: 'all', label: 'All' },
+  { id: 'design', label: 'Design' },
+  { id: 'development', label: 'Development' },
+  { id: 'learning', label: 'Learning' },
+  { id: 'productivity', label: 'Productivity' },
+];
 
 export function ToolsSection() {
   const isSmallScreen = useMediaQuery(640);
@@ -42,6 +51,7 @@ export function ToolsSection() {
   return (
     <section id="pricing">
       <div className="mx-auto flex max-w-screen-lg flex-col gap-8 px-4 py-14 md:px-8">
+        <AnimatedTabs tabs={tabs} />
         <div className="mx-auto grid flex-col justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence>
             {toolsToDisplay?.map((tool, index) => (
