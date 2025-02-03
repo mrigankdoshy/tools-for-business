@@ -4,6 +4,7 @@ import { ToolCard } from '@/features/landing/tools/tool-card';
 import { useTools } from '@/features/landing/tools/use-tools';
 import { AnimatedTabs, Tab } from '@/shared/ui/animated-tabs';
 import { buttonVariants } from '@/shared/ui/button';
+import { Input } from '@/shared/ui/input';
 import { Skeleton } from '@/shared/ui/skeleton';
 import { cn } from '@/shared/utils/cn';
 import { useMediaQuery } from '@/shared/utils/use-media-query';
@@ -51,7 +52,10 @@ export function ToolsSection() {
   return (
     <section id="pricing">
       <div className="mx-auto flex max-w-screen-lg flex-col gap-8 px-4 py-14 md:px-8">
-        <AnimatedTabs tabs={tabs} />
+        <div className="flex items-center justify-between">
+          <Input type="search" placeholder="Search" className="max-w-xs" />
+          <AnimatedTabs tabs={tabs} />
+        </div>
         <div className="mx-auto grid flex-col justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence>
             {toolsToDisplay?.map((tool, index) => (
