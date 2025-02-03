@@ -80,7 +80,7 @@ export function SearchDialog({
                       </p>
                     </div>
                     <div className="flex items-center gap-1 text-xs text-muted-foreground/70">
-                      <Sparkles className="h-3 w-3 text-[var(--color-two)]" />
+                      <Sparkles className="!size-3 text-[var(--color-two)]" />
                       {result.category}
                     </div>
                   </div>
