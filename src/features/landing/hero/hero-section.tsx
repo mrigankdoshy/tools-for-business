@@ -7,17 +7,25 @@ import { TextShimmer } from '@/shared/ui/text-shimmer';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { LayoutGroup, motion } from 'framer-motion';
 import { Search } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { SearchDialog } from './search-dialog';
 
 const words = ['AI tool', 'library', 'plugin'];
 
 export function HeroSection() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement search functionality here
+    setIsDialogOpen(true);
   };
+
+  useEffect(() => {
+    if (searchQuery.length > 0) {
+      setIsDialogOpen(true);
+    }
+  }, [searchQuery]);
 
   return (
     <section
@@ -57,6 +65,7 @@ export function HeroSection() {
             placeholder="Discover tools to supercharge your workflow"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => setIsDialogOpen(true)}
             className="text-md h-12 flex-grow rounded-l-lg border-none bg-background placeholder:text-muted-foreground/70 focus:text-muted-foreground/70 md:h-14"
           />
           <Button
@@ -68,6 +77,12 @@ export function HeroSection() {
           </Button>
         </div>
       </motion.form>
+      <SearchDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
     </section>
   );
 }
