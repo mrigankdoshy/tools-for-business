@@ -43,7 +43,7 @@ export function SearchForm() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setIsDialogOpen(true)}
-            className="text-md h-12 flex-grow rounded-l-lg border-none bg-background placeholder:text-muted-foreground/70 focus:text-muted-foreground/70 md:h-14"
+            className="h-12 flex-grow rounded-l-lg border-none bg-background text-sm placeholder:text-muted-foreground/70 focus:text-muted-foreground/70 md:h-14"
           />
           <Button
             type="submit"

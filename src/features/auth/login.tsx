@@ -19,7 +19,7 @@ export function Login() {
         <p className="px-8 text-center text-sm text-muted-foreground">
           <Link
             href="/signup"
-            className="hover:text-brand underline underline-offset-4"
+            className="underline underline-offset-4 hover:text-primary"
           >
             Don&apos;t have an account? Sign Up
           </Link>

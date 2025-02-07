@@ -76,7 +76,7 @@ export function SiteFooter() {
         <div className="gap-4 p-4 px-8 py-16 sm:pb-16 md:flex md:justify-between">
           <div className="mb-12 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
+              <span className="self-center whitespace-nowrap text-2xl font-semibold text-primary">
                 Focal
               </span>
             </Link>
@@ -92,7 +92,7 @@ export function SiteFooter() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-10">
             {footerNavOptions.map((nav) => (
               <div key={nav.label}>
-                <h2 className="mb-6 text-sm font-medium uppercase tracking-tighter text-gray-900 dark:text-white">
+                <h2 className="mb-6 text-sm font-medium uppercase tracking-tighter text-primary">
                   {nav.label}
                 </h2>
                 <ul className="grid gap-2">
@@ -100,7 +100,7 @@ export function SiteFooter() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="cursor-pointer text-sm font-[450] text-gray-400 duration-200 hover:text-gray-200"
+                        className="cursor-pointer text-sm font-[450] text-muted-foreground duration-200"
                       >
                         {item.name}
                       </Link>
@@ -112,22 +112,26 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 rounded-md border-neutral-700/20 px-8 py-4 sm:flex sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-row items-center justify-between px-8 py-4">
           <div className="flex space-x-5 sm:mt-0 sm:justify-center">
             {footerSocials.map((social) => (
               <Link
                 key={social.name}
                 href={social.href}
-                className="fill-gray-500 text-gray-500 hover:fill-gray-900 hover:text-gray-900 dark:hover:fill-gray-600 dark:hover:text-gray-600"
+                className="text-muted-foreground transition duration-200 hover:text-primary"
               >
                 {social.icon}
                 <span className="sr-only">{social.name}</span>
               </Link>
             ))}
           </div>
-          <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
-            Copyright © {new Date().getFullYear()}{' '}
-            <Link href="/" className="cursor-pointer">
+          <span className="text-xs text-muted-foreground sm:text-center">
+            &copy; {new Date().getFullYear()}{' '}
+            <Link
+              href="https://www.mrigankdoshy.com"
+              target="_blank"
+              className="cursor-pointer hover:text-primary"
+            >
               Mrigank Doshy
             </Link>
           </span>
