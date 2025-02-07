@@ -76,7 +76,7 @@ export function ToolsSection() {
             />
             <Search className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
           </motion.div>
-          <div className="overflow-x-auto">
+          <div className="no-scrollbar overflow-x-auto">
             <AnimatedTabs tabs={tabs} />
           </div>
         </motion.div>
