@@ -9,9 +9,9 @@ import { Skeleton } from '@/shared/ui/skeleton';
 import { cn } from '@/shared/utils/cn';
 import { useMediaQuery } from '@/shared/utils/use-media-query';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Search } from 'lucide-react';
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 const tabs: Tab[] = [
   { id: 'all', label: 'All' },
@@ -24,12 +24,16 @@ const tabs: Tab[] = [
 export function ToolsSection() {
   const isSmallScreen = useMediaQuery(640);
 
+  const [searchTerm, setSearchTerm] = useState('');
+
   const { data: tools, isLoading, error } = useTools();
 
-  const toolsToDisplay = useMemo(
-    () => (!isSmallScreen ? tools : tools?.slice(0, 6)),
-    [isSmallScreen, tools]
-  );
+  const toolsToDisplay = useMemo(() => {
+    const filteredTools = tools?.filter((tool) =>
+      tool.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    return !isSmallScreen ? filteredTools : filteredTools?.slice(0, 6);
+  }, [isSmallScreen, tools, searchTerm]);
 
   if (isLoading || !tools) {
     return (
@@ -53,19 +57,28 @@ export function ToolsSection() {
     <section id="pricing">
       <div className="mx-auto flex max-w-screen-lg flex-col gap-8 px-4 py-14 md:px-8">
         <motion.div
-          className="flex items-center justify-between"
+          className="flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           <motion.div
+            className="relative w-full sm:max-w-xs"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
           >
-            <Input type="search" placeholder="Search" className="max-w-xs" />
+            <Input
+              type="search"
+              placeholder="Search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <Search className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
           </motion.div>
-          <AnimatedTabs tabs={tabs} />
+          <div className="overflow-x-auto">
+            <AnimatedTabs tabs={tabs} />
+          </div>
         </motion.div>
         <div className="mx-auto grid flex-col justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence>
