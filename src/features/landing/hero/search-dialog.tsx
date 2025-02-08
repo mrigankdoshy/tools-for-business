@@ -10,7 +10,6 @@ import {
   CommandList,
 } from '@/shared/ui/command';
 import { DialogTitle } from '@/shared/ui/dialog';
-
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useMemo } from 'react';
