@@ -11,7 +11,7 @@ import { useMediaQuery } from '@/shared/utils/use-media-query';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronRight, Search } from 'lucide-react';
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 const tabs: Tab[] = [
   { id: 'all', label: 'All' },
@@ -25,6 +25,9 @@ export function ToolsSection() {
   const isSmallScreen = useMediaQuery(640);
 
   const [searchTerm, setSearchTerm] = useState('');
+  const [activeTool, setActiveTool] = useState<string | null>(null);
+
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   const { data: tools, isLoading, error } = useTools();
 
@@ -34,6 +37,24 @@ export function ToolsSection() {
     );
     return !isSmallScreen ? filteredTools : filteredTools?.slice(0, 6);
   }, [isSmallScreen, tools, searchTerm]);
+
+  const handleOverlayClick = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.target === overlayRef.current) {
+      setActiveTool(null);
+    }
+  };
+
+  useEffect(() => {
+    if (activeTool) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [activeTool]);
 
   if (isLoading || !tools) {
     return (
@@ -100,7 +121,12 @@ export function ToolsSection() {
                 initial={{ opacity: 0, x: -20, y: -20 }}
                 exit={{ opacity: 0, x: -10, y: -10 }}
               >
-                <ToolCard tool={tool} />
+                <ToolCard
+                  tool={tool}
+                  onClick={() => setActiveTool(tool.id)}
+                  onClose={() => setActiveTool(null)}
+                  isActive={activeTool === tool.id}
+                />
               </motion.div>
             ))}
           </AnimatePresence>
@@ -125,6 +151,18 @@ export function ToolsSection() {
           </Link>
         </motion.div>
       )}
+      <AnimatePresence>
+        {activeTool && (
+          <motion.div
+            ref={overlayRef}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 bg-black/50"
+            onClick={handleOverlayClick}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }
