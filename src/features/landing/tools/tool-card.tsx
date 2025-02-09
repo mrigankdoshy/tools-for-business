@@ -1,11 +1,15 @@
 'use client';
 
 import type { Tool } from '@/db/schema';
+import { CONTENT_1, CONTENT_2 } from '@/features/landing/tools/mocked-data';
+import { buttonVariants } from '@/shared/ui/button';
 import { Card } from '@/shared/ui/card';
+import { cn } from '@/shared/utils/cn';
 import { useOnClickOutside } from '@/shared/utils/use-on-click-outside';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRef } from 'react';
 
 type ToolCardProps = Readonly<{
@@ -22,73 +26,102 @@ export function ToolCard({ tool, isActive, onClick, onClose }: ToolCardProps) {
   useOnClickOutside(ref, onClose);
 
   return (
-    <motion.div
-      ref={ref}
-      layoutId={`card-${tool.id}`}
-      onClick={onClick}
-      className={`cursor-pointer ${isActive ? 'fixed inset-0 z-50 grid place-items-center overflow-auto p-4' : ''}`}
-    >
-      <Card
-        className={`group relative flex transform flex-col text-primary no-underline shadow-sm transition duration-300 ${
-          isActive
-            ? 'h-full w-full max-w-[500px] overflow-hidden sm:h-fit sm:max-h-[90%]'
-            : 'hover:scale-[1.01]'
-        }`}
-        gradientColor={
-          theme === 'dark' ? 'rgba(211, 14, 233, 0.15)' : '#D9D9D955'
-        }
+    <>
+      <motion.div
+        layoutId={`card-${tool.id}`}
+        onClick={onClick}
+        className="cursor-pointer"
       >
-        <motion.div layoutId={`image-${tool.id}`}>
-          <ImagePlaceholder isActive={isActive} />
-        </motion.div>
-        <div className="flex flex-col gap-2 p-4">
-          <motion.h2
-            layoutId={`title-${tool.id}`}
-            className="font-semibold leading-7"
-          >
-            {tool.name}
-          </motion.h2>
-          <motion.p
-            layoutId={`description-${tool.id}`}
-            className="text-sm leading-5 text-muted-foreground"
-          >
-            {tool.description}
-          </motion.p>
-          {isActive && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="mt-4 flex flex-col gap-4"
+        <Card
+          className="group relative flex transform flex-col text-primary no-underline shadow-sm transition duration-300"
+          gradientColor={
+            theme === 'dark' ? 'rgba(211, 14, 233, 0.15)' : '#D9D9D955'
+          }
+        >
+          <motion.div layoutId={`image-${tool.id}`}>
+            <ImagePlaceholder isActive={false} />
+          </motion.div>
+          <div className="flex flex-col gap-2 p-4">
+            <motion.h2
+              layoutId={`title-${tool.id}`}
+              className="font-semibold leading-7"
             >
-              <div className="flex items-center justify-between">
-                <p className="text-sm text-muted-foreground">
-                  Additional details about {tool.name}
-                </p>
-                <a
-                  href={tool.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  Learn More
-                </a>
-              </div>
-              <div className="relative pt-4">
-                <div className="h-40 overflow-auto pb-10 text-xs text-muted-foreground [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] md:h-fit md:text-sm lg:text-base">
-                  <p>
-                    Here you can add more detailed information about the tool,
-                    its features, use cases, or any other relevant content. This
-                    content will only be visible when the card is expanded.
-                  </p>
+              {tool.name}
+            </motion.h2>
+            <motion.p
+              layoutId={`description-${tool.id}`}
+              className="text-sm leading-5 text-muted-foreground"
+            >
+              {tool.description}
+            </motion.p>
+          </div>
+        </Card>
+      </motion.div>
+
+      <AnimatePresence>
+        {isActive && (
+          <div className="fixed inset-0 z-[100] grid place-items-center">
+            <motion.div
+              layoutId={`card-${tool.id}`}
+              ref={ref}
+              className="flex h-full w-full max-w-[500px] flex-col overflow-hidden border border-border bg-background sm:rounded-3xl md:h-fit md:max-h-[90%]"
+            >
+              <motion.div layoutId={`image-${tool.id}`}>
+                <ImagePlaceholder isActive />
+              </motion.div>
+              <div className="flex flex-col gap-4">
+                <div className="flex items-start justify-between p-4">
+                  <div className="flex flex-col gap-2">
+                    <motion.h1
+                      layoutId={`title-${tool.id}`}
+                      className="text-md font-semibold"
+                    >
+                      {tool.name}
+                    </motion.h1>
+                    <motion.h2
+                      layoutId={`description-${tool.id}`}
+                      className="text-sm text-muted-foreground"
+                    >
+                      {tool.description}
+                    </motion.h2>
+                  </div>
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className={cn(
+                      buttonVariants({ size: 'lg', variant: 'default' }),
+                      'rounded-full px-4 py-2 font-semibold'
+                    )}
+                  >
+                    <Link
+                      href={tool.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Learn More
+                    </Link>
+                  </motion.div>
+                </div>
+                <div className="relative px-4">
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="flex h-40 flex-col items-start gap-4 overflow-auto pb-10 text-sm text-muted-foreground [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] md:h-fit"
+                  >
+                    <p>{CONTENT_1}</p>
+                    <p>{CONTENT_2}</p>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
-          )}
-        </div>
-      </Card>
-    </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
