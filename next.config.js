@@ -12,6 +12,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'toolsforbusiness.vercel.app',
       },
+      {
+        protocol: 'https',
+        hostname: 'taai.gitury.com',
+      },
     ],
   },
 

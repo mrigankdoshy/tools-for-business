@@ -60,7 +60,7 @@ export function ToolsSection() {
     return (
       <div className="mx-auto grid max-w-screen-lg grid-cols-1 gap-8 px-4 py-14 sm:grid-cols-2 md:px-8 lg:grid-cols-3">
         {[...Array(9)].map((_, i) => (
-          <Skeleton key={i} className="h-[200px] rounded-xl" />
+          <Skeleton key={i} className="h-[280px] rounded-xl" />
         ))}
       </div>
     );

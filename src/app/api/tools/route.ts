@@ -1,11 +1,11 @@
 import { db } from '@/db';
 import { tools } from '@/db/schema';
-import { desc } from 'drizzle-orm';
+import { asc } from 'drizzle-orm';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    const allTools = await db.select().from(tools).orderBy(desc(tools.id));
+    const allTools = await db.select().from(tools).orderBy(asc(tools.name));
     return NextResponse.json(allTools);
   } catch (error) {
     return NextResponse.json(
