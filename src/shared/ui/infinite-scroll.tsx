@@ -4,23 +4,29 @@ import { LoaderCircle } from 'lucide-react';
 import { ReactNode, useEffect, useRef } from 'react';
 
 type InfiniteScrollProps = {
+  children: ReactNode;
   isLoading: boolean;
   isFetchingNextPage: boolean;
   hasNextPage: boolean;
-  children: ReactNode;
+  disabled?: boolean;
   fetchNextPage: () => void;
 };
 
 export function InfiniteScroll({
+  children,
   isLoading,
   isFetchingNextPage,
   hasNextPage,
-  children,
+  disabled,
   fetchNextPage,
 }: InfiniteScrollProps) {
   const observerElement = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if (disabled) {
+      return;
+    }
+
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (
@@ -35,7 +41,7 @@ export function InfiniteScroll({
 
     const observer = new IntersectionObserver(handleIntersection, {
       root: null,
-      rootMargin: '300px',
+      rootMargin: '100px',
       threshold: 0,
     });
 
@@ -44,7 +50,7 @@ export function InfiniteScroll({
     }
 
     return () => observer.disconnect();
-  }, [isFetchingNextPage, isLoading, hasNextPage, fetchNextPage]);
+  }, [isFetchingNextPage, isLoading, hasNextPage, fetchNextPage, disabled]);
 
   return (
     <>

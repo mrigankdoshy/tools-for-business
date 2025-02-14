@@ -12,7 +12,7 @@ import { useMediaQuery } from '@/shared/utils/use-media-query';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronRight, Search } from 'lucide-react';
 import Link from 'next/link';
-import { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
+import { MouseEvent, useEffect, useRef, useState } from 'react';
 
 const tabs: Tab[] = [
   { id: 'all', label: 'All' },
@@ -37,19 +37,7 @@ export function ToolsSection() {
     isFetchingNextPage,
     isLoading,
     error,
-  } = useTools({ limit: 24 });
-
-  const tools = useMemo(
-    () => data?.pages.flatMap(({ tools }) => tools) || [],
-    [data?.pages]
-  );
-
-  const toolsToDisplay = useMemo(() => {
-    const filteredTools = tools?.filter((tool) =>
-      tool.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    return !isSmallScreen ? filteredTools : filteredTools?.slice(0, 6);
-  }, [isSmallScreen, tools, searchTerm]);
+  } = useTools({ limit: isSmallScreen ? 6 : 24 });
 
   const handleOverlayClick = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target === overlayRef.current) {
@@ -69,7 +57,7 @@ export function ToolsSection() {
     };
   }, [activeTool]);
 
-  if (isLoading || !tools) {
+  if (isLoading || !data) {
     return (
       <div className="mx-auto grid max-w-screen-lg grid-cols-1 gap-8 px-4 py-14 sm:grid-cols-2 md:px-8 lg:grid-cols-3">
         {[...Array(9)].map((_, i) => (
@@ -119,34 +107,33 @@ export function ToolsSection() {
             isLoading={isLoading}
             isFetchingNextPage={isFetchingNextPage}
             hasNextPage={hasNextPage}
+            disabled={isSmallScreen}
             fetchNextPage={fetchNextPage}
           >
-            {toolsToDisplay?.map((tool, index) => (
-              <motion.div
-                key={tool.id}
-                className="col-span-1"
-                animate={{
-                  opacity: 1,
-                  x: 0,
-                  y: 0,
-                }}
-                transition={{
-                  type: 'spring',
-                  duration: 0.3,
-                  stiffness: 100,
-                  delay: index * 0.1,
-                }}
-                initial={{ opacity: 0, x: -20, y: -20 }}
-                exit={{ opacity: 0, x: -10, y: -10 }}
-              >
-                <ToolCard
-                  tool={tool}
-                  onClick={() => setActiveTool(tool.id)}
-                  onClose={() => setActiveTool(null)}
-                  isActive={activeTool === tool.id}
-                />
-              </motion.div>
-            ))}
+            {data?.pages.map((page) =>
+              page.tools.map((tool, itemIndex) => (
+                <motion.div
+                  key={tool.id}
+                  className="col-span-1"
+                  initial={{ opacity: 0, x: -20, y: -20 }}
+                  animate={{ opacity: 1, x: 0, y: 0 }}
+                  exit={{ opacity: 0, x: -10, y: -10 }}
+                  transition={{
+                    type: 'spring',
+                    duration: 0.3,
+                    stiffness: 100,
+                    delay: itemIndex * 0.1,
+                  }}
+                >
+                  <ToolCard
+                    tool={tool}
+                    onClick={() => setActiveTool(tool.id)}
+                    onClose={() => setActiveTool(null)}
+                    isActive={activeTool === tool.id}
+                  />
+                </motion.div>
+              ))
+            )}
           </InfiniteScroll>
         </div>
       </div>

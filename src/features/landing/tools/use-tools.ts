@@ -1,3 +1,4 @@
+import { PaginatedTools } from '@/features/landing/tools/types';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 type UseToolsParams = Readonly<{
@@ -5,7 +6,7 @@ type UseToolsParams = Readonly<{
 }>;
 
 export function useTools({ limit }: UseToolsParams) {
-  return useInfiniteQuery({
+  return useInfiniteQuery<PaginatedTools>({
     queryKey: ['tools'],
     queryFn: async ({ pageParam = 0 }) => {
       const response = await fetch(
