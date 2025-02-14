@@ -1,6 +1,6 @@
 import { Button } from '@/shared/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 
 export type Tab = Readonly<{
   id: string;
@@ -12,7 +12,7 @@ type AnimatedTabsProps = Readonly<{
   onSelect?: (tab: Tab) => void;
 }>;
 
-export function AnimatedTabs({ tabs, onSelect }: AnimatedTabsProps) {
+function AnimatedTabs({ tabs, onSelect }: AnimatedTabsProps) {
   const [activeTab, setActiveTab] = useState(tabs[0]?.id);
 
   const onClick = (tab: Tab) => {
@@ -53,3 +53,6 @@ export function AnimatedTabs({ tabs, onSelect }: AnimatedTabsProps) {
     </div>
   );
 }
+
+const memoAnimatedTabs = memo(AnimatedTabs);
+export { memoAnimatedTabs as AnimatedTabs };

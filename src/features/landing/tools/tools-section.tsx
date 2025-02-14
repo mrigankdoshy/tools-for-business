@@ -8,6 +8,7 @@ import { InfiniteScroll } from '@/shared/ui/infinite-scroll';
 import { Input } from '@/shared/ui/input';
 import { Skeleton } from '@/shared/ui/skeleton';
 import { cn } from '@/shared/utils/cn';
+import { useDebounce } from '@/shared/utils/use-debounce';
 import { useMediaQuery } from '@/shared/utils/use-media-query';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronRight, Search } from 'lucide-react';
@@ -30,6 +31,8 @@ export function ToolsSection() {
 
   const overlayRef = useRef<HTMLDivElement>(null);
 
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+
   const {
     data,
     fetchNextPage,
@@ -37,7 +40,10 @@ export function ToolsSection() {
     isFetchingNextPage,
     isLoading,
     error,
-  } = useTools({ limit: isSmallScreen ? 6 : 24 });
+  } = useTools({
+    limit: isSmallScreen ? 6 : 24,
+    searchTerm: debouncedSearchTerm,
+  });
 
   const handleOverlayClick = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target === overlayRef.current) {
@@ -96,7 +102,9 @@ export function ToolsSection() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <Search className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
+            {!searchTerm && (
+              <Search className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
+            )}
           </motion.div>
           <div className="no-scrollbar overflow-x-auto">
             <AnimatedTabs tabs={tabs} />

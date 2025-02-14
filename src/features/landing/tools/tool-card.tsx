@@ -1,5 +1,3 @@
-'use client';
-
 import type { Tool } from '@/db/schema';
 import { ToolImage } from '@/features/landing/tools/tool-image';
 import { buttonVariants } from '@/shared/ui/button';
@@ -9,7 +7,7 @@ import { useOnClickOutside } from '@/shared/utils/use-on-click-outside';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
-import { useRef } from 'react';
+import { memo, useRef } from 'react';
 
 type ToolCardProps = Readonly<{
   tool: Tool;
@@ -18,7 +16,7 @@ type ToolCardProps = Readonly<{
   onClose: () => void;
 }>;
 
-export function ToolCard({ tool, isActive, onClick, onClose }: ToolCardProps) {
+function ToolCard({ tool, isActive, onClick, onClose }: ToolCardProps) {
   const { theme } = useTheme();
   const ref = useRef<HTMLDivElement>(null);
 
@@ -126,3 +124,6 @@ export function ToolCard({ tool, isActive, onClick, onClose }: ToolCardProps) {
     </>
   );
 }
+
+const memoToolCard = memo(ToolCard);
+export { memoToolCard as ToolCard };
