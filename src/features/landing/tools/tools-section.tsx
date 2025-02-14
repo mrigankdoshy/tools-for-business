@@ -4,6 +4,7 @@ import { ToolCard } from '@/features/landing/tools/tool-card';
 import { useTools } from '@/features/landing/tools/use-tools';
 import { AnimatedTabs, type Tab } from '@/shared/ui/animated-tabs';
 import { buttonVariants } from '@/shared/ui/button';
+import { InfiniteScroll } from '@/shared/ui/infinite-scroll';
 import { Input } from '@/shared/ui/input';
 import { Skeleton } from '@/shared/ui/skeleton';
 import { cn } from '@/shared/utils/cn';
@@ -29,7 +30,19 @@ export function ToolsSection() {
 
   const overlayRef = useRef<HTMLDivElement>(null);
 
-  const { data: tools, isLoading, error } = useTools();
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+    error,
+  } = useTools({ limit: 24 });
+
+  const tools = useMemo(
+    () => data?.pages.flatMap(({ tools }) => tools) || [],
+    [data?.pages]
+  );
 
   const toolsToDisplay = useMemo(() => {
     const filteredTools = tools?.filter((tool) =>
@@ -102,7 +115,12 @@ export function ToolsSection() {
           </div>
         </motion.div>
         <div className="mx-auto grid flex-col justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence>
+          <InfiniteScroll
+            isLoading={isLoading}
+            isFetchingNextPage={isFetchingNextPage}
+            hasNextPage={hasNextPage}
+            fetchNextPage={fetchNextPage}
+          >
             {toolsToDisplay?.map((tool, index) => (
               <motion.div
                 key={tool.id}
@@ -111,12 +129,12 @@ export function ToolsSection() {
                   opacity: 1,
                   x: 0,
                   y: 0,
-                  transition: {
-                    type: 'spring',
-                    duration: 0.3,
-                    stiffness: 100,
-                    delay: index * 0.1,
-                  },
+                }}
+                transition={{
+                  type: 'spring',
+                  duration: 0.3,
+                  stiffness: 100,
+                  delay: index * 0.1,
                 }}
                 initial={{ opacity: 0, x: -20, y: -20 }}
                 exit={{ opacity: 0, x: -10, y: -10 }}
@@ -129,7 +147,7 @@ export function ToolsSection() {
                 />
               </motion.div>
             ))}
-          </AnimatePresence>
+          </InfiniteScroll>
         </div>
       </div>
       {isSmallScreen && (
