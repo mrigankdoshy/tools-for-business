@@ -1,5 +1,3 @@
-'use client';
-
 import { UserAuthForm } from '@/features/auth/user-auth-form';
 import { BackButton } from '@/shared/ui/back-button';
 import Link from 'next/link';

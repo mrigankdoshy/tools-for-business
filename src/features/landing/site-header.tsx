@@ -21,7 +21,7 @@ export function SiteHeader() {
           <div className="hidden items-center gap-2 sm:flex">
             <Link
               className={cn(buttonVariants({ variant: 'ghost' }), 'text-sm')}
-              href="/signin"
+              href="/login"
             >
               Log in
             </Link>
@@ -57,7 +57,7 @@ export function SiteHeader() {
                 buttonVariants({ variant: 'ghost' }),
                 'justify-start'
               )}
-              href="/signin"
+              href="/login"
               onClick={() => setIsMenuOpen(false)}
             >
               Log in
