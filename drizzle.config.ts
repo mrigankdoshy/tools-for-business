@@ -10,7 +10,6 @@ export default defineConfig({
   dialect: 'postgresql',
   verbose: true,
   dbCredentials: {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     url: process.env.POSTGRES_URL!,
   },
 });
