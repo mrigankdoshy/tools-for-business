@@ -21,18 +21,18 @@ export function SiteHeader() {
           <div className="hidden items-center gap-2 sm:flex">
             <Link
               className={cn(buttonVariants({ variant: 'ghost' }), 'text-sm')}
-              href="/login"
+              href="/sign-in"
             >
-              Log in
+              Sign In
             </Link>
             <Link
               className={cn(
                 buttonVariants({ variant: 'secondary' }),
                 'text-sm'
               )}
-              href="/signup"
+              href="/sign-up"
             >
-              Sign up
+              Sign Up
             </Link>
           </div>
           <Button
@@ -57,20 +57,20 @@ export function SiteHeader() {
                 buttonVariants({ variant: 'ghost' }),
                 'justify-start'
               )}
-              href="/login"
+              href="/sign-in"
               onClick={() => setIsMenuOpen(false)}
             >
-              Log in
+              Sign In
             </Link>
             <Link
               className={cn(
                 buttonVariants({ variant: 'ghost' }),
                 'justify-start'
               )}
-              href="/signup"
+              href="/sign-up"
               onClick={() => setIsMenuOpen(false)}
             >
-              Sign up
+              Sign Up
             </Link>
           </nav>
         </div>
