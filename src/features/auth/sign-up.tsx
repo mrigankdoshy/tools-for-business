@@ -52,7 +52,12 @@ export function SignUpPage() {
                           <SignUp.Action submit asChild>
                             <ContinueButton disabled={isGlobalLoading} />
                           </SignUp.Action>
-                          <Button variant="link" size="sm" asChild>
+                          <Button
+                            variant="link"
+                            size="sm"
+                            className="cursor-pointer"
+                            asChild
+                          >
                             <Clerk.Link navigate="sign-in">
                               Already have an account? Sign in
                             </Clerk.Link>
