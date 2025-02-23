@@ -1,7 +1,7 @@
 import type { Tool } from '@/db/schema';
 import { ToolImage } from '@/features/landing/tools/tool-image';
 import { buttonVariants } from '@/shared/ui/button';
-import { Card } from '@/shared/ui/card';
+import { GradientCard } from '@/shared/ui/gradient-card';
 import { cn } from '@/shared/utils/cn';
 import { useOnClickOutside } from '@/shared/utils/use-on-click-outside';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -29,7 +29,7 @@ function ToolCard({ tool, isActive, onClick, onClose }: ToolCardProps) {
         onClick={onClick}
         className="cursor-pointer"
       >
-        <Card
+        <GradientCard
           className="group relative flex transform flex-col text-primary no-underline shadow-sm transition duration-300"
           gradientColor={
             theme === 'dark' ? 'rgba(211, 14, 233, 0.15)' : '#D9D9D955'
@@ -56,7 +56,7 @@ function ToolCard({ tool, isActive, onClick, onClose }: ToolCardProps) {
               {tool.shortDescription}
             </motion.p>
           </div>
-        </Card>
+        </GradientCard>
       </motion.div>
 
       <AnimatePresence>

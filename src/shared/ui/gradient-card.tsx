@@ -5,7 +5,7 @@ import { useMousePosition } from '@/shared/utils/use-mouse-position';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { HTMLAttributes, useEffect, useRef } from 'react';
 
-type CardProps = HTMLAttributes<HTMLDivElement> &
+type GradientCardProps = HTMLAttributes<HTMLDivElement> &
   Readonly<{
     gradientSize?: number;
     gradientColor?: string;
@@ -14,7 +14,7 @@ type CardProps = HTMLAttributes<HTMLDivElement> &
     gradientTo?: string;
   }>;
 
-export function Card({
+export function GradientCard({
   children,
   className,
   gradientSize = 200,
@@ -22,7 +22,7 @@ export function Card({
   gradientOpacity = 0.8,
   gradientFrom = '#fb00ff',
   gradientTo = '#ba65ff',
-}: CardProps) {
+}: GradientCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(-gradientSize);
   const mouseY = useMotionValue(-gradientSize);
