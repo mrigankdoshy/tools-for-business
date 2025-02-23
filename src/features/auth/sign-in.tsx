@@ -57,56 +57,16 @@ export function SignInPage() {
                     </Card>
                   </SignIn.Step>
 
-                  <SignIn.Step name="choose-strategy">
-                    <Card className="w-full sm:w-96">
-                      <CardHeader>
-                        <CardTitle>Use another method</CardTitle>
-                        <CardDescription>
-                          Facing issues? You can use any of these methods to
-                          sign in.
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent className="grid gap-y-4">
-                        <SignIn.SupportedStrategy name="email_code" asChild>
-                          <Button
-                            type="button"
-                            variant="link"
-                            disabled={isGlobalLoading}
-                          >
-                            Email code
-                          </Button>
-                        </SignIn.SupportedStrategy>
-                        <SignIn.SupportedStrategy name="password" asChild>
-                          <Button
-                            type="button"
-                            variant="link"
-                            disabled={isGlobalLoading}
-                          >
-                            Password
-                          </Button>
-                        </SignIn.SupportedStrategy>
-                      </CardContent>
-                      <CardFooter>
-                        <div className="grid w-full gap-y-4">
-                          <SignIn.Action navigate="previous" asChild>
-                            <ContinueButton disabled={isGlobalLoading} />
-                          </SignIn.Action>
-                        </div>
-                      </CardFooter>
-                    </Card>
-                  </SignIn.Step>
-
                   <SignIn.Step name="verifications">
                     <SignIn.Strategy name="password">
-                      {/* This should only show when the user is verifying via password */}
                       <Card className="w-full sm:w-96">
                         <CardHeader>
-                          <CardTitle>Check your email</CardTitle>
+                          <CardTitle>Enter your password</CardTitle>
                           <CardDescription>
-                            Enter the verification code sent to your email
+                            Welcome back <SignIn.SafeIdentifier />
                           </CardDescription>
                           <p className="text-sm text-muted-foreground">
-                            Welcome back <SignIn.SafeIdentifier />
+                            Enter the password to your account
                           </p>
                         </CardHeader>
                         <CardContent className="grid gap-y-4">
@@ -132,10 +92,10 @@ export function SignInPage() {
                         <CardHeader>
                           <CardTitle>Check your email</CardTitle>
                           <CardDescription>
-                            Enter the verification code sent to your email
+                            Welcome back <SignIn.SafeIdentifier />
                           </CardDescription>
                           <p className="text-sm text-muted-foreground">
-                            Welcome back <SignIn.SafeIdentifier />
+                            Enter the verification code sent to your email
                           </p>
                         </CardHeader>
                         <CardContent className="grid gap-y-4">
@@ -197,6 +157,45 @@ export function SignInPage() {
                         </CardFooter>
                       </Card>
                     </SignIn.Strategy>
+                  </SignIn.Step>
+
+                  <SignIn.Step name="choose-strategy">
+                    <Card className="w-full sm:w-96">
+                      <CardHeader>
+                        <CardTitle>Use another method</CardTitle>
+                        <CardDescription>
+                          Facing issues? You can use any of these methods to
+                          sign in.
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="grid gap-y-4">
+                        <SignIn.SupportedStrategy name="email_code" asChild>
+                          <Button
+                            type="button"
+                            variant="link"
+                            disabled={isGlobalLoading}
+                          >
+                            Email code
+                          </Button>
+                        </SignIn.SupportedStrategy>
+                        <SignIn.SupportedStrategy name="password" asChild>
+                          <Button
+                            type="button"
+                            variant="link"
+                            disabled={isGlobalLoading}
+                          >
+                            Password
+                          </Button>
+                        </SignIn.SupportedStrategy>
+                      </CardContent>
+                      <CardFooter>
+                        <div className="grid w-full gap-y-4">
+                          <SignIn.Action navigate="previous" asChild>
+                            <ContinueButton disabled={isGlobalLoading} />
+                          </SignIn.Action>
+                        </div>
+                      </CardFooter>
+                    </Card>
                   </SignIn.Step>
                 </>
               )}
