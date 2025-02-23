@@ -4,6 +4,7 @@ import '@/shared/styles/globals.css';
 import { Toaster } from '@/shared/ui/sonner';
 import { cn } from '@/shared/utils/cn';
 import { siteConfig } from '@/site/config';
+import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
@@ -65,14 +66,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <TanstackQueryClientProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            disableTransitionOnChange
-          >
-            {children}
-            <Toaster />
-          </ThemeProvider>
+          <ClerkProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="dark"
+              disableTransitionOnChange
+            >
+              {children}
+              <Toaster />
+            </ThemeProvider>
+          </ClerkProvider>
         </TanstackQueryClientProvider>
       </body>
     </html>
