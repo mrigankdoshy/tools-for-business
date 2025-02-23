@@ -44,5 +44,6 @@
     "className",
     "classNames",
     "containerClassName"
-  ]
+  ],
+  "cSpell.words": ["supabase"]
 }
