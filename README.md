@@ -1,4 +1,4 @@
-# [Tools for Business](https://toolsforbusiness.vercel.app)
+# [Tools for Business](https://www.toolsforbusiness.ai)
 
 Launch your startup in a day without code—start with free no-code tool recommendations. Stop waiting, create your idea now!
 

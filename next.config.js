@@ -10,7 +10,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'toolsforbusiness.vercel.app',
+        hostname: 'toolsforbusiness.ai',
       },
       {
         protocol: 'https',
