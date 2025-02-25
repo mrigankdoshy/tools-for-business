@@ -5,6 +5,7 @@ import { Toaster } from '@/shared/ui/sonner';
 import { cn } from '@/shared/utils/cn';
 import { siteConfig } from '@/site/config';
 import { ClerkProvider } from '@clerk/nextjs';
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             >
               {children}
               <Toaster />
+              <Analytics />
             </ThemeProvider>
           </ClerkProvider>
         </TanstackQueryClientProvider>
