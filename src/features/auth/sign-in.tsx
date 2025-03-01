@@ -16,6 +16,7 @@ import {
 } from '@/shared/ui/card';
 import * as Clerk from '@clerk/elements/common';
 import * as SignIn from '@clerk/elements/sign-in';
+import Link from 'next/link';
 
 export function SignInPage() {
   return (
@@ -53,9 +54,9 @@ export function SignInPage() {
                             className="cursor-pointer"
                             asChild
                           >
-                            <Clerk.Link navigate="sign-up">
+                            <Link href="/sign-up">
                               Don&apos;t have an account? Sign up
-                            </Clerk.Link>
+                            </Link>
                           </Button>
                         </div>
                       </CardFooter>

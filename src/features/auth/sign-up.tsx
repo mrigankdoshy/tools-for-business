@@ -19,6 +19,7 @@ import { Label } from '@/shared/ui/label';
 import { cn } from '@/shared/utils/cn';
 import * as Clerk from '@clerk/elements/common';
 import * as SignUp from '@clerk/elements/sign-up';
+import Link from 'next/link';
 
 export function SignUpPage() {
   return (
@@ -58,9 +59,9 @@ export function SignUpPage() {
                             className="cursor-pointer"
                             asChild
                           >
-                            <Clerk.Link navigate="sign-in">
+                            <Link href="/sign-in">
                               Already have an account? Sign in
-                            </Clerk.Link>
+                            </Link>
                           </Button>
                         </div>
                       </CardFooter>
