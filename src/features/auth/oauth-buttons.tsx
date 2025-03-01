@@ -25,16 +25,16 @@ export function OAuthButtons({ isLoading }: OAuthButtonsProps) {
           </Clerk.Loading>
         </Button>
       </Clerk.Connection>
-      <Clerk.Connection name="apple" asChild>
+      <Clerk.Connection name="github" asChild>
         <Button size="sm" variant="outline" type="button" disabled={isLoading}>
-          <Clerk.Loading scope="provider:apple">
+          <Clerk.Loading scope="provider:github">
             {(isLoading) =>
               isLoading ? (
                 <Icons.spinner className="size-4 animate-spin" />
               ) : (
                 <>
-                  <Icons.apple className="mr-2 size-4" />
-                  Apple
+                  <Icons.gitHub className="mr-2 size-4" />
+                  GitHub
                 </>
               )
             }
