@@ -1,10 +1,10 @@
+import { AuthProvider } from '@/features/auth/auth-provider';
 import { TanstackQueryClientProvider } from '@/features/query/tanstack-query-client-provider';
 import { ThemeProvider } from '@/features/theme/theme-provider';
 import '@/shared/styles/globals.css';
 import { Toaster } from '@/shared/ui/sonner';
 import { cn } from '@/shared/utils/cn';
 import { siteConfig } from '@/site/config';
-import { ClerkProvider } from '@clerk/nextjs';
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -67,17 +67,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <TanstackQueryClientProvider>
-          <ClerkProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              disableTransitionOnChange
-            >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            disableTransitionOnChange
+          >
+            <AuthProvider>
               {children}
               <Toaster />
               <Analytics />
-            </ThemeProvider>
-          </ClerkProvider>
+            </AuthProvider>
+          </ThemeProvider>
         </TanstackQueryClientProvider>
       </body>
     </html>
