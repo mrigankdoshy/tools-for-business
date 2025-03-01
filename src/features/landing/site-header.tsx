@@ -1,8 +1,10 @@
 'use client';
 
+import { UserAuthButtons } from '@/features/auth/user-auth-buttons';
 import { ThemeToggle } from '@/features/theme/theme-toggle';
 import { Button, buttonVariants } from '@/shared/ui/button';
 import { cn } from '@/shared/utils/cn';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -18,60 +20,37 @@ export function SiteHeader() {
         </Link>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <div className="hidden items-center gap-2 sm:flex">
-            <Link
-              className={cn(buttonVariants({ variant: 'ghost' }), 'text-sm')}
-              href="/sign-in"
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+          <SignedOut>
+            <div className="hidden items-center gap-2 sm:flex">
+              <UserAuthButtons />
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="sm:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              Sign In
-            </Link>
-            <Link
-              className={cn(
-                buttonVariants({ variant: 'secondary' }),
-                'text-sm'
+              {isMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
               )}
-              href="/sign-up"
-            >
-              Sign Up
-            </Link>
-          </div>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="sm:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
-          </Button>
+            </Button>
+          </SignedOut>
         </div>
       </div>
       {isMenuOpen && (
         <div className="container py-4 animate-in sm:hidden">
           <nav className="flex flex-col gap-2">
-            <Link
+            <UserAuthButtons
               className={cn(
                 buttonVariants({ variant: 'ghost' }),
                 'justify-start'
               )}
-              href="/sign-in"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Sign In
-            </Link>
-            <Link
-              className={cn(
-                buttonVariants({ variant: 'ghost' }),
-                'justify-start'
-              )}
-              href="/sign-up"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Sign Up
-            </Link>
+            />
           </nav>
         </div>
       )}
