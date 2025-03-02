@@ -28,7 +28,7 @@ export function ToolsSection() {
 
   return (
     <section id="tools">
-      <div className="mx-auto flex max-w-screen-lg flex-col gap-8 px-4 py-14 md:px-8">
+      <div className="mx-auto flex max-w-(--breakpoint-lg) flex-col gap-8 px-4 py-14 md:px-8">
         <motion.div
           className="flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between"
           initial={{ opacity: 0, y: -20 }}
@@ -48,7 +48,7 @@ export function ToolsSection() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             {!searchTerm && (
-              <Search className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
+              <Search className="text-muted-foreground absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2 transform" />
             )}
           </motion.div>
           <div className="no-scrollbar overflow-x-auto">

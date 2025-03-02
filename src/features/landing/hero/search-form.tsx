@@ -36,19 +36,19 @@ export function SearchForm() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.5 }}
       >
-        <div className="shadow-[var(--color-three)]/20 hover:shadow-[var(--color-three)]/30 relative flex items-center overflow-hidden rounded-lg bg-gradient-to-r from-[var(--color-three)] via-[var(--color-two)] to-[var(--color-three)] p-[1px] shadow-lg transition-all duration-300 hover:shadow-xl">
+        <div className="relative flex items-center overflow-hidden rounded-lg bg-linear-to-r from-[var(--color-three)] via-[var(--color-two)] to-[var(--color-three)] p-[1px] shadow-[var(--color-three)]/20 shadow-lg transition-all duration-300 hover:shadow-[var(--color-three)]/30 hover:shadow-xl">
           <Input
             type="text"
             placeholder="Discover tools to supercharge your workflow"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setIsDialogOpen(true)}
-            className="h-12 flex-grow rounded-l-lg border-none bg-background text-sm placeholder:text-muted-foreground/70 focus:text-muted-foreground/70 md:h-14"
+            className="bg-background placeholder:text-muted-foreground/70 focus:text-muted-foreground/70 h-12 grow rounded-l-lg border-none text-sm md:h-14"
           />
           <Button
             type="submit"
             variant="ghost"
-            className="h-12 rounded-r-lg bg-transparent font-semibold text-primary-foreground transition-all hover:bg-white/10 md:h-14"
+            className="text-primary-foreground h-12 rounded-r-lg bg-transparent font-semibold transition-all hover:bg-white/10 md:h-14"
           >
             <Search className="h-5 w-5" />
           </Button>

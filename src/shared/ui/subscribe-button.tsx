@@ -15,8 +15,8 @@ export function SubscribeButton() {
   return (
     <Button
       className={cn(
-        'group relative flex-shrink-0 overflow-hidden tracking-tighter',
-        'transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-2'
+        'group relative shrink-0 overflow-hidden tracking-tighter',
+        'hover:ring-primary transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-offset-2'
       )}
       disabled={isLoading}
       onClick={onSubscribeClick}

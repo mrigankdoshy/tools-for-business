@@ -38,7 +38,7 @@ export function SignInPage() {
                       </CardHeader>
                       <CardContent className="grid gap-y-4">
                         <OAuthButtons isLoading={isGlobalLoading} />
-                        <p className="flex items-center gap-x-3 text-sm text-muted-foreground before:h-px before:flex-1 before:bg-border after:h-px after:flex-1 after:bg-border">
+                        <p className="text-muted-foreground before:bg-border after:bg-border flex items-center gap-x-3 text-sm before:h-px before:flex-1 after:h-px after:flex-1">
                           or
                         </p>
                         <EmailField type="sign-in" />
@@ -71,7 +71,7 @@ export function SignInPage() {
                           <CardDescription>
                             Welcome back <SignIn.SafeIdentifier />
                           </CardDescription>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-muted-foreground text-sm">
                             Enter the password to your account
                           </p>
                         </CardHeader>
@@ -100,7 +100,7 @@ export function SignInPage() {
                           <CardDescription>
                             Welcome back <SignIn.SafeIdentifier />
                           </CardDescription>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-muted-foreground text-sm">
                             Enter the verification code sent to your email
                           </p>
                         </CardHeader>
@@ -114,12 +114,12 @@ export function SignInPage() {
                                 <Clerk.Input
                                   type="otp"
                                   autoSubmit
-                                  className="flex justify-center has-[:disabled]:opacity-50"
+                                  className="flex justify-center has-disabled:opacity-50"
                                   render={({ value, status }) => {
                                     return (
                                       <div
                                         data-status={status}
-                                        className="relative flex h-9 w-9 items-center justify-center border-y border-r border-input text-sm shadow-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md data-[status=cursor]:ring-1 data-[status=selected]:ring-1 data-[status=cursor]:ring-ring data-[status=selected]:ring-ring"
+                                        className="border-input data-[status=cursor]:ring-ring data-[status=selected]:ring-ring relative flex h-9 w-9 items-center justify-center border-y border-r text-sm shadow-xs transition-all first:rounded-l-md first:border-l last:rounded-r-md data-[status=cursor]:ring-1 data-[status=selected]:ring-1"
                                       >
                                         {value}
                                       </div>
@@ -127,7 +127,7 @@ export function SignInPage() {
                                   }}
                                 />
                               </div>
-                              <Clerk.FieldError className="block text-center text-sm text-destructive" />
+                              <Clerk.FieldError className="text-destructive block text-center text-sm" />
                               <SignIn.Action
                                 asChild
                                 resend

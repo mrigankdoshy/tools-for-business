@@ -30,7 +30,7 @@ function ToolCard({ tool, isActive, onClick, onClose }: ToolCardProps) {
         className="cursor-pointer"
       >
         <GradientCard
-          className="group relative flex transform flex-col text-primary no-underline shadow-sm transition duration-300"
+          className="group text-primary relative flex transform flex-col no-underline shadow-xs transition duration-300"
           gradientColor={
             theme === 'dark' ? 'rgba(211, 14, 233, 0.15)' : '#D9D9D955'
           }
@@ -45,13 +45,13 @@ function ToolCard({ tool, isActive, onClick, onClose }: ToolCardProps) {
           <div className="flex flex-col gap-2 p-4">
             <motion.h2
               layoutId={`title-${tool.id}`}
-              className="font-semibold leading-7"
+              className="leading-7 font-semibold"
             >
               {tool.name}
             </motion.h2>
             <motion.p
               layoutId={`description-${tool.id}`}
-              className="text-sm leading-5 text-muted-foreground"
+              className="text-muted-foreground text-sm leading-5"
             >
               {tool.shortDescription}
             </motion.p>
@@ -61,11 +61,11 @@ function ToolCard({ tool, isActive, onClick, onClose }: ToolCardProps) {
 
       <AnimatePresence>
         {isActive && (
-          <div className="fixed inset-0 z-[100] grid place-items-center">
+          <div className="fixed inset-0 z-100 grid place-items-center">
             <motion.div
               layoutId={`card-${tool.id}`}
               ref={ref}
-              className="flex h-full w-full max-w-[500px] flex-col overflow-hidden border border-border bg-background sm:rounded-3xl md:h-fit md:max-h-[90%]"
+              className="border-border bg-background flex h-full w-full max-w-[500px] flex-col overflow-hidden border sm:rounded-3xl md:h-fit md:max-h-[90%]"
             >
               <motion.div layoutId={`image-${tool.id}`}>
                 <ToolImage isActive url={tool.imageUrl} toolName={tool.name} />
@@ -81,7 +81,7 @@ function ToolCard({ tool, isActive, onClick, onClose }: ToolCardProps) {
                     </motion.h1>
                     <motion.h2
                       layoutId={`description-${tool.id}`}
-                      className="text-sm text-muted-foreground"
+                      className="text-muted-foreground text-sm"
                     >
                       {tool.shortDescription}
                     </motion.h2>
@@ -111,7 +111,7 @@ function ToolCard({ tool, isActive, onClick, onClose }: ToolCardProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="flex h-40 flex-col items-start gap-4 overflow-auto pb-10 text-sm text-muted-foreground [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] md:h-fit"
+                    className="text-muted-foreground flex h-40 flex-col items-start gap-4 overflow-auto pb-10 text-sm [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] md:h-fit"
                   >
                     <p>{tool.longDescription}</p>
                   </motion.div>

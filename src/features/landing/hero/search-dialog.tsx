@@ -74,12 +74,12 @@ export function SearchDialog({
                         </span>
                         <ArrowRight className="h-4 w-4 text-[var(--color-three)]" />
                       </div>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-muted-foreground text-xs">
                         {result.description}
                       </p>
                     </div>
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground/70">
-                      <Sparkles className="!size-3 text-[var(--color-two)]" />
+                    <div className="text-muted-foreground/70 flex items-center gap-1 text-xs">
+                      <Sparkles className="size-3! text-[var(--color-two)]" />
                       {result.category}
                     </div>
                   </div>

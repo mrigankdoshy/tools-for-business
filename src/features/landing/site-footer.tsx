@@ -72,27 +72,24 @@ const footerSocials: FooterSocial[] = [
 export function SiteFooter() {
   return (
     <footer>
-      <div className="mx-auto w-full max-w-screen-xl xl:pb-2">
+      <div className="mx-auto w-full max-w-(--breakpoint-xl) xl:pb-2">
         <div className="gap-4 p-4 px-8 py-16 sm:pb-16 md:flex md:justify-between">
           <div className="mb-12 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <span className="self-center whitespace-nowrap text-2xl font-semibold text-primary">
+              <span className="text-primary self-center text-2xl font-semibold whitespace-nowrap">
                 Focal
               </span>
             </Link>
             <p className="max-w-xs">Tools for Business</p>
             <div className="flex items-center gap-2">
-              <Input
-                placeholder="Enter your email"
-                className="flex-grow basis-0"
-              />
+              <Input placeholder="Enter your email" className="grow basis-0" />
               <SubscribeButton />
             </div>
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-10">
             {footerNavOptions.map((nav) => (
               <div key={nav.label}>
-                <h2 className="mb-6 text-sm font-medium uppercase tracking-tighter text-primary">
+                <h2 className="text-primary mb-6 text-sm font-medium tracking-tighter uppercase">
                   {nav.label}
                 </h2>
                 <ul className="grid gap-2">
@@ -100,7 +97,7 @@ export function SiteFooter() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="cursor-pointer text-sm font-[450] text-muted-foreground duration-200"
+                        className="text-muted-foreground cursor-pointer text-sm font-[450] duration-200"
                       >
                         {item.name}
                       </Link>
@@ -118,19 +115,19 @@ export function SiteFooter() {
               <Link
                 key={social.name}
                 href={social.href}
-                className="text-muted-foreground transition duration-200 hover:text-primary"
+                className="text-muted-foreground hover:text-primary transition duration-200"
               >
                 {social.icon}
                 <span className="sr-only">{social.name}</span>
               </Link>
             ))}
           </div>
-          <span className="text-xs text-muted-foreground sm:text-center">
+          <span className="text-muted-foreground text-xs sm:text-center">
             &copy; {new Date().getFullYear()}{' '}
             <Link
               href="https://www.mrigankdoshy.com"
               target="_blank"
-              className="cursor-pointer hover:text-primary"
+              className="hover:text-primary cursor-pointer"
             >
               Mrigank Doshy
             </Link>

@@ -14,13 +14,13 @@ export function HeroSection() {
       id="hero"
       className="relative mx-auto mt-32 max-w-7xl px-6 text-center md:px-8"
     >
-      <div className="backdrop-filter-[12px] group inline-flex h-7 animate-fade-in items-center justify-between gap-1 rounded-full border border-primary/10 bg-primary/5 px-3 text-xs text-primary opacity-0 transition-all ease-in hover:cursor-pointer hover:bg-primary/10">
+      <div className="group animate-fade-in border-primary/10 bg-primary/5 text-primary hover:bg-primary/10 inline-flex h-7 items-center justify-between gap-1 rounded-full border px-3 text-xs opacity-0 backdrop-filter-[12px] transition-all ease-in hover:cursor-pointer">
         <TextShimmer className="inline-flex items-center justify-center">
           <span>✨ Introducing a Weekly Newsletter</span>
           <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
         </TextShimmer>
       </div>
-      <h1 className="animate-fade-in bg-gradient-to-br from-primary via-primary/80 to-primary/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent opacity-0 [--animation-delay:200ms] md:text-6xl lg:text-7xl">
+      <h1 className="animate-fade-in from-primary via-primary/80 to-primary/40 bg-linear-to-br bg-clip-text py-6 text-5xl leading-none font-medium tracking-tighter text-transparent opacity-0 [--animation-delay:200ms] md:text-6xl lg:text-7xl">
         <LayoutGroup>
           <motion.span layout>Find that </motion.span>
           <motion.span layout>
@@ -29,7 +29,7 @@ export function HeroSection() {
           <motion.span layout> that works for you</motion.span>
         </LayoutGroup>
       </h1>
-      <p className="text-md mb-8 animate-fade-in text-balance tracking-tight text-muted-foreground opacity-0 [--animation-delay:400ms] md:text-lg">
+      <p className="text-md animate-fade-in text-muted-foreground mb-8 tracking-tight text-balance opacity-0 [--animation-delay:400ms] md:text-lg">
         Launch your startup in a day without code—we find the right tools for
         you so you can ship fast.
         <br className="hidden md:block" /> Stop waiting, create your idea now!
