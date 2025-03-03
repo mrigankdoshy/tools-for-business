@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export function SiteHeader() {
   return (
-    <header className="fixed left-0 top-0 z-50 w-full animate-fade-in opacity-0 backdrop-blur-md [--animation-delay:600ms]">
+    <header className="animate-fade-in fixed top-0 left-0 z-50 w-full opacity-0 backdrop-blur-md [--animation-delay:600ms]">
       <div className="container flex h-14 items-center justify-between">
         <Link className="text-md flex items-center" href="/">
           Tools for Business

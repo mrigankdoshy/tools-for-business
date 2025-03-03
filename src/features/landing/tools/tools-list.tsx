@@ -45,7 +45,7 @@ export function ToolsList({
 
   if (error) {
     return (
-      <div className="text-center text-destructive">
+      <div className="text-destructive text-center">
         Error loading tools. Please try again later.
       </div>
     );

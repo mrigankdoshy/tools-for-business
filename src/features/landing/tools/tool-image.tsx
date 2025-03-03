@@ -9,7 +9,7 @@ type ToolImageProps = Readonly<{
 export function ToolImage({ isActive, toolName, url }: ToolImageProps) {
   return (
     <div
-      className={`relative flex items-center justify-center bg-secondary/30 ${
+      className={`bg-secondary/30 relative flex items-center justify-center ${
         isActive ? 'h-80 sm:rounded-tl-lg sm:rounded-tr-lg' : 'h-48 rounded-lg'
       }`}
     >

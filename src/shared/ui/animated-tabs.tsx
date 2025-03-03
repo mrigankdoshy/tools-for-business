@@ -40,7 +40,7 @@ function AnimatedTabs({ tabs, onSelect }: AnimatedTabsProps) {
               {activeTab === tab.id && (
                 <motion.span
                   layoutId="bubble"
-                  className="absolute inset-0 z-10 bg-primary mix-blend-difference"
+                  className="bg-primary absolute inset-0 z-10 mix-blend-difference"
                   style={{ borderRadius: 9999 }}
                   transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                 />

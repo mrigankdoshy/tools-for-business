@@ -20,7 +20,7 @@ export function PasswordField() {
       >
         <Input />
       </Clerk.Input>
-      <Clerk.FieldError className="block text-sm text-destructive" />
+      <Clerk.FieldError className="text-destructive block text-sm" />
     </Clerk.Field>
   );
 }

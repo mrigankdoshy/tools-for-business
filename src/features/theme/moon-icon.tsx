@@ -22,7 +22,7 @@ export function MoonIcon() {
 
   return (
     <div
-      className="flex cursor-pointer select-none items-center justify-center overflow-hidden rounded-md p-2 transition-colors duration-200 hover:bg-accent"
+      className="hover:bg-accent flex cursor-pointer items-center justify-center overflow-hidden rounded-md p-2 transition-colors duration-200 select-none"
       onMouseEnter={() => controls.start('animate')}
       onMouseLeave={() => controls.start('normal')}
     >
