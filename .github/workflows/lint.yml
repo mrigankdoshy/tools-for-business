@@ -3,7 +3,9 @@ on:
   push:
     branches:
       - main
-  pull_request: {}
+  pull_request:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.job }}-${{ github.ref }}
@@ -25,7 +27,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'pnpm'
 
       - name: 📥 Download deps

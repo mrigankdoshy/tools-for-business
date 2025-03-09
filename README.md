@@ -33,7 +33,7 @@ Browse over 100+ curated AI tools for business that will enable you to scale and
 
 To run this project locally, ensure you have the following tools installed:
 
-- [Node.js](https://nodejs.org/en/download/package-manager/current) (v20 or later)
+- [Node.js](https://nodejs.org/en/download/package-manager/current) (v22 or later)
 - [pnpm](https://pnpm.io)
 
 ### Installation
