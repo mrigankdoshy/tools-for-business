@@ -12,10 +12,10 @@ USING hnsw (embedding vector_cosine_ops);
 CREATE OR REPLACE FUNCTION hybrid_tool_search(
   query_text text,
   query_embedding vector(1536),
-  match_count int DEFAULT 10,
-  full_text_weight float DEFAULT 1.0,
-  semantic_weight float DEFAULT 1.5,
-  min_similarity float DEFAULT 0.3
+  match_count integer DEFAULT 10,
+  full_text_weight double precision DEFAULT 1.0,
+  semantic_weight double precision DEFAULT 1.5,
+  min_similarity double precision DEFAULT 0.1
 )
 RETURNS TABLE (
   id uuid,
@@ -36,22 +36,28 @@ BEGIN
   SELECT
     tools.id,
     tools.name,
-    tools.short_description,
+    tools.long_description,
     tools.category,
     1 - (tools.embedding <=> query_embedding) AS similarity,
     (
       (ts_rank_cd(
-        to_tsvector('english', tools.name || ' ' || tools.short_description), 
+        to_tsvector('english', tools.name || ' ' || tools.long_description || ' ' || tools.category), 
         full_text_query
       ) * full_text_weight) +
-      ((1 - (tools.embedding <=> query_embedding)) * semantic_weight)
+      ((1 - (tools.embedding <=> query_embedding)) * semantic_weight) +
+      CASE 
+        WHEN lower(tools.name) = lower(query_text) THEN 10
+        ELSE 0
+      END
     ) AS rank
   FROM
     tools
   WHERE
+    tools.embedding IS NOT NULL AND
     (
-      (to_tsvector('english', tools.name || ' ' || tools.short_description) @@ full_text_query) OR
-      ((1 - (tools.embedding <=> query_embedding)) > min_similarity)
+      to_tsvector('english', tools.name || ' ' || tools.long_description || ' ' || tools.category) @@ full_text_query
+      OR
+      (1 - (tools.embedding <=> query_embedding)) > min_similarity
     )
   ORDER BY
     rank DESC

@@ -87,11 +87,9 @@ export function SearchDialog({
                       <div className="text-muted-foreground/70 flex items-center gap-1 text-xs">
                         <Sparkles className="size-3! text-[var(--color-two)]" />
                         {result.category}
-                        {result.similarity && (
-                          <span className="ml-2 text-[var(--color-one)]">
-                            {(result.similarity * 100).toFixed(0)}% match
-                          </span>
-                        )}
+                        <span className="ml-2 text-[var(--color-one)]">
+                          {(result.similarity * 100).toFixed(0)}% match
+                        </span>
                       </div>
                     </div>
                   </CommandItem>
