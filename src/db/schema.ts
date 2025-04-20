@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import { pgTable, text, timestamp, uuid, vector } from 'drizzle-orm/pg-core';
 
 export const tools = pgTable('tools', {
   id: uuid('id').primaryKey(),
@@ -10,6 +10,7 @@ export const tools = pgTable('tools', {
   pricing: text('pricing').notNull(),
   category: text('category').notNull(),
   createdAt: timestamp('created_at').notNull(),
+  embedding: vector('embedding', { dimensions: 1536 }),
 });
 
 export type Tool = typeof tools.$inferSelect;

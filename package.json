@@ -17,6 +17,9 @@
     "typecheck": "tsc --noEmit --incremental false",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "generate-embeddings": "tsx scripts/generate-embeddings.ts",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "prepare": "husky"
   },
@@ -36,6 +39,7 @@
     "@tanstack/react-query": "^5.74.4",
     "@types/react-dom": "^19.1.2",
     "@vercel/analytics": "^1.5.0",
+    "chalk": "^5.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.1.1",
