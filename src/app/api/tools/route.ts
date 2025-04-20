@@ -4,9 +4,9 @@ import { PaginatedTools } from '@/features/landing/tools/types';
 import { asc, sql } from 'drizzle-orm';
 import { NextResponse } from 'next/server';
 
-export async function GET(req: Request) {
+export async function GET(request: Request) {
   try {
-    const { searchParams } = new URL(req.url);
+    const { searchParams } = new URL(request.url);
 
     const searchTerm = searchParams.get('search') || '';
     const limit = parseInt(searchParams.get('limit') || '10', 10);
