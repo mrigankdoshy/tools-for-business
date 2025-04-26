@@ -1,5 +1,5 @@
 import { AuthProvider } from '@/features/auth/auth-provider';
-import { TanstackQueryClientProvider } from '@/features/query/tanstack-query-client-provider';
+import { QueryClientProvider } from '@/features/query/query-client-provider';
 import { ThemeProvider } from '@/features/theme/theme-provider';
 import '@/shared/styles/globals.css';
 import { Toaster } from '@/shared/ui/sonner';
@@ -66,7 +66,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        <TanstackQueryClientProvider>
+        <QueryClientProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -75,10 +75,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <AuthProvider>
               {children}
               <Toaster />
-              <Analytics />
             </AuthProvider>
           </ThemeProvider>
-        </TanstackQueryClientProvider>
+        </QueryClientProvider>
+        <Analytics />
       </body>
     </html>
   );
