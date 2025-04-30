@@ -24,9 +24,8 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@clerk/elements": "^0.23.18",
-    "@clerk/nextjs": "^6.18.0",
-    "@eslint/eslintrc": "^3.3.1",
+    "@clerk/elements": "^0.23.19",
+    "@clerk/nextjs": "^6.18.1",
     "@hookform/resolvers": "^5.0.1",
     "@next/env": "^15.3.1",
     "@radix-ui/react-dialog": "^1.1.11",
@@ -36,8 +35,8 @@
     "@radix-ui/react-slot": "^1.2.0",
     "@radix-ui/react-switch": "^1.2.2",
     "@radix-ui/react-visually-hidden": "^1.2.0",
-    "@tanstack/react-query": "^5.74.4",
-    "@tanstack/react-query-devtools": "^5.74.6",
+    "@tanstack/react-query": "^5.74.11",
+    "@tanstack/react-query-devtools": "^5.74.11",
     "@types/react-dom": "^19.1.2",
     "@vercel/analytics": "^1.5.0",
     "chalk": "^5.4.1",
@@ -49,7 +48,7 @@
     "lucide-react": "^0.503.0",
     "next": "^15.3.1",
     "next-themes": "^0.4.6",
-    "openai": "^4.96.0",
+    "openai": "^4.96.2",
     "postgres": "^3.4.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -68,8 +67,8 @@
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.1.4",
     "@types/react": "^19.1.2",
-    "@typescript-eslint/eslint-plugin": "^8.31.0",
-    "@typescript-eslint/parser": "^8.31.0",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
     "drizzle-kit": "^0.31.0",
     "eslint": "^9.25.1",
     "eslint-config-next": "^15.3.1",
@@ -82,9 +81,9 @@
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.4",
-    "tsx": "^4.19.3",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.31.0"
+    "typescript-eslint": "^8.31.1"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
