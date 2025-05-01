@@ -24,7 +24,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@clerk/elements": "^0.23.19",
+    "@clerk/elements": "^0.23.20",
     "@clerk/nextjs": "^6.18.1",
     "@hookform/resolvers": "^5.0.1",
     "@next/env": "^15.3.1",
