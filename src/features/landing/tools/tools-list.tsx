@@ -4,7 +4,7 @@ import { ToolCard } from '@/features/landing/tools/tool-card';
 import { useTools } from '@/features/landing/tools/use-tools';
 import { InfiniteScroll } from '@/shared/ui/infinite-scroll';
 import { Skeleton } from '@/shared/ui/skeleton';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { MouseEvent, useRef, useState } from 'react';
 
 type ToolsListProps = Readonly<{

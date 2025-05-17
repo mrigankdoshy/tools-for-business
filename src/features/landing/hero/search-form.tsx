@@ -3,8 +3,8 @@
 import { SearchDialog } from '@/features/landing/hero/search-dialog';
 import { Button } from '@/shared/ui/button';
 import { Input } from '@/shared/ui/input';
-import { motion } from 'framer-motion';
 import { Search } from 'lucide-react';
+import { motion } from 'motion/react';
 import { FormEvent, useEffect, useState } from 'react';
 
 export function SearchForm() {

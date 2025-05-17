@@ -15,8 +15,8 @@ import {
 } from '@/shared/ui/command';
 import { DialogTitle } from '@/shared/ui/dialog';
 import { useDebounce } from '@/shared/utils/use-debounce';
-import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Loader2, Sparkles } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 
 type SearchDialogProps = Readonly<{
   isOpen: boolean;

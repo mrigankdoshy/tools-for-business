@@ -2,7 +2,7 @@
 
 import { cn } from '@/shared/utils/cn';
 import { useMousePosition } from '@/shared/utils/use-mouse-position';
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { motion, useMotionTemplate, useMotionValue } from 'motion/react';
 import { HTMLAttributes, useEffect, useRef } from 'react';
 
 type GradientCardProps = HTMLAttributes<HTMLDivElement> &

@@ -4,7 +4,7 @@ import { buttonVariants } from '@/shared/ui/button';
 import { GradientCard } from '@/shared/ui/gradient-card';
 import { cn } from '@/shared/utils/cn';
 import { useOnClickOutside } from '@/shared/utils/use-on-click-outside';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { memo, useRef } from 'react';

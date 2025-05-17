@@ -1,5 +1,5 @@
 import { Button } from '@/shared/ui/button';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { memo, useState } from 'react';
 
 export type Tab = Readonly<{

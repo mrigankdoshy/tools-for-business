@@ -7,8 +7,8 @@ import { Input } from '@/shared/ui/input';
 import { cn } from '@/shared/utils/cn';
 import { useDebounce } from '@/shared/utils/use-debounce';
 import { useMediaQuery } from '@/shared/utils/use-media-query';
-import { motion } from 'framer-motion';
 import { ChevronRight, Search } from 'lucide-react';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 import { useState } from 'react';
 

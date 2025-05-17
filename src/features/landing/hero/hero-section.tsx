@@ -4,7 +4,7 @@ import { SearchForm } from '@/features/landing/hero/search-form';
 import { FlipWords } from '@/shared/ui/flip-words';
 import { TextShimmer } from '@/shared/ui/text-shimmer';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
-import { LayoutGroup, motion } from 'framer-motion';
+import { LayoutGroup, motion } from 'motion/react';
 
 const words = ['AI tool', 'library', 'plugin'];
 

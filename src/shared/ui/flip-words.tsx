@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/shared/utils/cn';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { useCallback, useEffect, useState } from 'react';
 
 type FlipWordsProps = Readonly<{
