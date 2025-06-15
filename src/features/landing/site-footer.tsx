@@ -38,7 +38,7 @@ const footerNavOptions: FooterNavOption[] = [
   {
     label: 'Community',
     items: [
-      { href: '/newsletter', name: 'Newsletter' },
+      { href: 'https://catalystai.beehiiv.com/subscribe', name: 'Newsletter' },
       { href: 'mailto:', name: 'Email' },
     ],
   },
