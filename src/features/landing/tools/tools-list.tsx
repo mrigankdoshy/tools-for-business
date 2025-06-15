@@ -9,13 +9,13 @@ import { MouseEvent, useRef, useState } from 'react';
 
 type ToolsListProps = Readonly<{
   limit: number;
-  searchTerm: string;
+  searchTerm?: string;
   scrollDisabled: boolean;
 }>;
 
 export function ToolsList({
   limit,
-  searchTerm,
+  searchTerm = '',
   scrollDisabled,
 }: ToolsListProps) {
   const [activeTool, setActiveTool] = useState<string | null>(null);

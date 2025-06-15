@@ -1,12 +1,5 @@
 'use client';
-
-import { Input } from '@/shared/ui/input';
-import { SubscribeButton } from '@/shared/ui/subscribe-button';
-import {
-  EnvelopeClosedIcon,
-  InstagramLogoIcon,
-  TwitterLogoIcon,
-} from '@radix-ui/react-icons';
+import { EnvelopeClosedIcon, InstagramLogoIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
@@ -28,18 +21,10 @@ type FooterSocial = Readonly<{
 
 const footerNavOptions: FooterNavOption[] = [
   {
-    label: 'Product',
-    items: [
-      { href: '/', name: 'Home' },
-      { href: '/tools', name: 'Tools' },
-      { href: '/blog', name: 'Blog' },
-    ],
-  },
-  {
     label: 'Community',
     items: [
       { href: 'https://catalystai.beehiiv.com/subscribe', name: 'Newsletter' },
-      { href: 'mailto:', name: 'Email' },
+      { href: 'mailto:contact@toolsforbusiness.ai', name: 'Email' },
     ],
   },
   {
@@ -53,17 +38,12 @@ const footerNavOptions: FooterNavOption[] = [
 
 const footerSocials: FooterSocial[] = [
   {
-    href: '',
+    href: 'https://www.instagram.com/foundry.ai/',
     name: 'Instagram',
     icon: <InstagramLogoIcon className="size-4" />,
   },
   {
-    href: '',
-    name: 'Twitter',
-    icon: <TwitterLogoIcon className="size-4" />,
-  },
-  {
-    href: '',
+    href: 'mailto:contact@toolsforbusiness.ai',
     name: 'Email',
     icon: <EnvelopeClosedIcon className="size-4" />,
   },
@@ -81,12 +61,13 @@ export function SiteFooter() {
               </span>
             </Link>
             <p className="max-w-xs">Tools for Business</p>
-            <div className="flex items-center gap-2">
+            {/* TODO: Unhide after wiring up to behiive api */}
+            {/* <div className="flex items-center gap-2">
               <Input placeholder="Enter your email" className="grow basis-0" />
               <SubscribeButton />
-            </div>
+            </div> */}
           </div>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-10">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
             {footerNavOptions.map((nav) => (
               <div key={nav.label}>
                 <h2 className="text-primary mb-6 text-sm font-medium tracking-tighter uppercase">
@@ -97,6 +78,8 @@ export function SiteFooter() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-muted-foreground cursor-pointer text-sm font-[450] duration-200"
                       >
                         {item.name}
@@ -115,6 +98,8 @@ export function SiteFooter() {
               <Link
                 key={social.name}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition duration-200"
               >
                 {social.icon}
@@ -127,6 +112,7 @@ export function SiteFooter() {
             <Link
               href="https://www.mrigankdoshy.com"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-primary cursor-pointer"
             >
               Mrigank Doshy
