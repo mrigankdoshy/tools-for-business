@@ -84,8 +84,8 @@ importers:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       openai:
-        specifier: ^5.9.0
-        version: 5.9.0(zod@4.0.5)
+        specifier: ^5.11.0
+        version: 5.11.0(zod@4.0.5)
       postgres:
         specifier: ^3.4.7
         version: 3.4.7
@@ -3669,8 +3669,8 @@ packages:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
 
-  openai@5.9.0:
-    resolution: {integrity: sha512-cmLC0pfqLLhBGxE4aZPyRPjydgYCncppV2ClQkKmW79hNjCvmzkfhz8rN5/YVDmjVQlFV+UsF1JIuNjNgeagyQ==}
+  openai@5.11.0:
+    resolution: {integrity: sha512-+AuTc5pVjlnTuA9zvn8rA/k+1RluPIx9AD4eDcnutv6JNwHHZxIhkFy+tmMKCvmMFDQzfA/r1ujvPWB19DQkYg==}
     hasBin: true
     peerDependencies:
       ws: ^8.18.0
@@ -7969,7 +7969,7 @@ snapshots:
     dependencies:
       mimic-function: 5.0.1
 
-  openai@5.9.0(zod@4.0.5):
+  openai@5.11.0(zod@4.0.5):
     optionalDependencies:
       zod: 4.0.5
 
