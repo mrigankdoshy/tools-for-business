@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@clerk/elements": "^0.23.38",
-    "@clerk/nextjs": "^6.24.0",
+    "@clerk/nextjs": "^6.31.6",
     "@eslint/eslintrc": "^3.3.1",
     "@hookform/resolvers": "^5.1.1",
     "@next/env": "^15.3.5",
