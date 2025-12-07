@@ -1,21 +1,12 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import eslint from '@eslint/js';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import tseslint from 'typescript-eslint';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTs from 'eslint-config-next/typescript';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import { defineConfig, globalIgnores } from 'eslint/config';
 
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-  recommendedConfig: eslint.configs.recommended,
-  allConfig: eslint.configs.all,
-});
-
-export default tseslint.config(
-  eslint.configs.recommended,
+export default defineConfig([
+  ...nextVitals,
+  ...nextTs,
   eslintConfigPrettier,
-  ...tseslint.configs.recommended,
-  ...compat.config({
-    extends: ['next'],
-  }),
   {
     ignores: ['node_modules'],
     files: ['**/*.{ts,tsx}'],
@@ -48,5 +39,13 @@ export default tseslint.config(
         },
       ],
     },
-  }
-);
+  },
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+  ]),
+]);

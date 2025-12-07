@@ -206,6 +206,7 @@ export function Particles({
         drawCircle(newCircle);
       }
     });
+    // eslint-disable-next-line react-hooks/immutability
     window.requestAnimationFrame(animate);
   }, [clearContext, circleParams, drawCircle, ease, staticity, vx, vy]);
 
